@@ -21,5 +21,7 @@ Offensively, PSPunch contains commands for Privilege Escalation, Recon and Data 
   - PowerUp
   - PowerView
 
-#### Thanks and Ackwnowledgements
+#### Greetz
 PS>Attack was inspired by and benefits from a lot of incredible people in the PowerShell community. Particularly [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. Besides writing the modules and commands that give PSPunch it's.. punch, their various projects have inspired alot of my approach to PSAttack and PSPunch as well as my decision to try and contirbute something back to the community.
+
+A huge thank you to [Ben0xA](https://twitter.com/ben0xa), who's [PoshSecFramework](https://github.com/PoshSec/PoshSecFramework) was used to figure out a lot of things about how to build a powershell console.
