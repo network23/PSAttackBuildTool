@@ -1,4 +1,4 @@
-_PS>Attack isn't in a working state yet, [PSPunch](https://www.github.com/jaredhaight/PSPunch/) works as a limited proof of concept. These projects are under heavy, active development and should be ready to go early 2016_
+_PS>Attack isn't in a working state yet, [PSPunch](https://www.github.com/jaredhaight/PSPunch/) works as a limited proof of concept. These projects are under heavy, active development and should be ready to go early 2016. I'm writing an ongoing series of articles about where this project is at [here](https://www.psattack.com/articles/20150212/psattack-v000001/)_
 
 ## PS>Attack
 
