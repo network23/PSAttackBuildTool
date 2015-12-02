@@ -1,5 +1,7 @@
 _PS>Attack isn't in a working state yet, [PSPunch](https://www.github.com/jaredhaight/PSPunch/) works as a limited proof of concept. These projects are under heavy, active development and should be ready to go early 2016. I'm writing an ongoing series of articles about where this project is at [here](https://www.psattack.com/articles/20150212/psattack-v000001/)_
 
+_If you have any questions or suggestions for PS>Attack and PSPunch, feel free to reachout on twitter or via email: jaredhaight `at` prontonmail.com_
+
 ## PS>Attack
 
 A platform for generating a portable powershell attack environment (from [PSPunch](https://www.github.com/jaredhaight/PSPunch/)). The generated environment is a self contained exe and comes with a lot of the latest and greatest offensive PowerShell tools. 
