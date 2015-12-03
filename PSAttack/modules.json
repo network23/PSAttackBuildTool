@@ -1,7 +1,32 @@
-﻿{
-  "invoke-mimikatz": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1",
-  "invoke-gpppassword": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1",
-  "invoke-ninjacopy": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1",
-  "powerup": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerUp/PowerUp.ps1",
-  "powerview":"https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1"
-}
+﻿  [
+    {
+      "name": "invoke-mimikatz",
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1",
+      "desc": "Gets credentials stored in memory on local or remote computers by running mimikatz",
+      "keywords": [ "passwords" ]
+    },
+    {
+      "name": "invoke-gpppassword",
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1",
+      "desc": "Gets credentials from Group Policy Preferences in a Domain",
+      "keywords": [ "passwords" ]
+    },
+    {
+      "name": "invoke-ninjacopy",
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1",
+      "desc": "Bypasses ACL and file locks to copy files from a disk",
+      "keywords": [ "exfiltration" ]
+    },
+    {
+      "name": "powerup",
+      "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerUp/PowerUp.ps1",
+      "desc": "Provides a variety of privalage escalation modules",
+      "keywords": [ "privilage escalation" ]
+    },
+    {
+      "name": "powerview",
+      "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1",
+      "desc": "Provides a variety of tools for network reconnonsiance, including tools for exploring Active Directory domains and hunting users.",
+      "keywords": [ "recon" ]
+    }
+  ]
