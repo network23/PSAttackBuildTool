@@ -21,9 +21,18 @@ Offensively, PSPunch contains commands for Privilege Escalation, Recon and Data 
   - Invoke-Mimikatz
   - Invoke-GPPPassword
   - Invoke-NinjaCopy
+  - Invoke-Shellcode
+  - Invoke-WMICommand
 * [PowerTools](https://github.com/PowerShellEmpire/PowerTools)
   - PowerUp
   - PowerView
+* [Nishang](https://github.com/samratashok/nishang)
+  - Gupt-Backdoor
+  - Do-Exfiltration
+  - DNS-TXT-Pwnage
+  - Get-Infromation
+  - Get-WLAN-Keys
+* [Powercat](https://github.com/besimorhino/powercat)
 
 #### Greetz
 PS>Attack was inspired by and benefits from a lot of incredible people in the PowerShell community. Particularly [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. Besides writing the modules and commands that give PSPunch it's.. punch, their various projects have inspired alot of my approach to PSAttack and PSPunch as well as my decision to try and contirbute something back to the community.
