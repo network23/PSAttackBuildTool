@@ -28,5 +28,65 @@
       "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1",
       "desc": "Provides a variety of tools for network reconnonsiance, including tools for exploring Active Directory domains and hunting users.",
       "keywords": [ "recon" ]
+    },
+    {
+      "name": "invoke-shellcode",
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke--Shellcode.ps1",
+      "desc": "Inject shellcode into the Process of your choosing or within the running process. Contains builtin meterpreter payloads.",
+      "keywords": [ "execution" ]
+    },
+    {
+      "name": "invoke-wmicommand",
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-WmiCommand.ps1",
+      "desc": "Execute powershell commands on remote hosts using WMI as a pure C2 channel",
+      "keywords": [ "execution" ]
+    },
+    {
+      "name": "add-exfiltration",
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Add-Exfiltration.ps1",
+      "desc": "Exfiltrates data to Gmail, Pastebin, a Web server or DNS server through TXT queries",
+      "keywords": [ "exfiltration" ]
+    },
+    {
+      "name": "do-exfiltration",
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Do-Exfiltration.ps1",
+      "desc": "Used with Add-Exfiltration to send data to Gmail, Pastebin, a webserver or DNS",
+      "keywords": [ "exfiltration" ]
+    },
+    {
+      "name": "gupt-backdoor",
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/Gupt-Backdoor.ps1",
+      "desc": "Gupt looks for a specially crafted Wireless SSID from list of all avaliable networks. It matches first four characters of each SSID with the parameter MagicString. On a match, if the 5th character is a 'c', rest of the SSID name is considered to be a command and exeucted. If the 5th character is a 'u', rest of the SSID is considered the id part of Google URL Shortener and a script is downloaded and executed in memory from the URL. See examples for usage.",
+      "keywords": [ "backdoor" ]
+    },
+    {
+      "name": "dns_txt_pwnage",
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/DNS_TXT_Pwnage.ps1",
+      "desc": "Continuely queries a domains TXT records and excutes them (must use the out-dnstxt command to generate the commands)",
+      "keywords": [ "backdoor" ]
+    },
+    {
+      "name": "out-dnstxt",
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Out-DnsTxt.ps1",
+      "desc": "Used to encode commands for use with the dns_txt_pwnage backdoor",
+      "keywords": [ "backdoor" ]
+    },
+    {
+      "name": "get-information",
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-Information.ps1",
+      "desc": "Pulls information about the local host",
+      "keywords": [ "recon" ]
+    },
+    {
+      "name": "get-wlan-keys",
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-WLAN-Keys.ps1",
+      "desc": "Dumps keys for WLAN profiles.",
+      "keywords": [ "passwords" ]
+    },
+    {
+      "name": "powercat",
+      "url": "https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1",
+      "desc": "A full featured netcat in powershell",
+      "keywords": ["exfiltration", "execution"]
     }
   ]
