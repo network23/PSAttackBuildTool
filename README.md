@@ -1,6 +1,6 @@
 _PS>Attack isn't in a working state yet, [PS>Punch](https://www.github.com/jaredhaight/PSPunch/) (the portable environment that PS>Attack generates) works as a limited proof of concept. You can download the alpha for PS>Punch [here](https://github.com/jaredhaight/PSPunch/releases/)_
 
-_This README mostly reflects where PS>Attack will be when it's "done". These projects are under heavy, active development and should gain features quickly. I'm planning to have "1.0" ready to go early 2016. I'm writing an ongoing series of articles about where this project is at [here](https://www.psattack.com/articles/20150212/psattack-v000001/)_
+_This README mostly reflects where PS>Attack will be when it's "done". These projects are under heavy, active development and should gain features quickly. I'm planning to have "1.0" ready to go early 2016. I'm writing an ongoing series of articles about where this project is at [here](https://www.psattack.com/tags/psattack/)_
 
 _If you have any questions or suggestions for PS>Attack and PS>Punch, feel free to reachout on twitter or via email: jaredhaight `at` prontonmail.com_
 
