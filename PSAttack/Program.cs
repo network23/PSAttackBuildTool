@@ -15,9 +15,17 @@ namespace PSAttack
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(Strings.psaWarning);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(Strings.psaStartMsg);
+            Console.ReadLine();
+
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(Strings.psaLogo);
             Console.ForegroundColor = ConsoleColor.White;
+
             StreamReader sr = new StreamReader("modules.json");
             string modulesJson = sr.ReadToEnd();
             Console.WriteLine("[*] Getting modules from local json.");
@@ -53,23 +61,7 @@ namespace PSAttack
             Console.ForegroundColor = ConsoleColor.Gray;
             PSAUtils.BuildPunch(punch);
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(@"
-
-    Build complete! Some warning messages are expected from the compiler 
-    so don't be alarmed. If there are errors running your build of 
-    PS>Punch, please submit an issue on github referencing the errors
-    that came up during the build.
-
-    Your build of PS>Punch is available at: 
-
-    {0}
-
-    You only need the PSPunch.exe file, the others are extra from the
-    build process.
-
-    Press return to open up the folder. Thanks for using PS>Attack!
-
-", Strings.punchBuildDir);
+            Console.WriteLine(Strings.psaEndMsg, Strings.punchBuildDir);
             Console.ReadLine();
             Process.Start(Strings.punchBuildDir);
         }
