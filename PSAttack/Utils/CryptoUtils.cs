@@ -45,7 +45,6 @@ namespace PSAttack.Utils
         public static void EncryptFile(Punch punch, string inputFile, string outputFile)
         {
             string key = GenerateKey(punch);
-            Console.WriteLine("Encrypting with: {0}", key);
             byte[] keyBytes;
             keyBytes = Encoding.Unicode.GetBytes(key);
 

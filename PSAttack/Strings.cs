@@ -18,5 +18,15 @@ namespace PSAttack
         public static string punchModulesDir = "PSPunch\\Modules\\";
         public static string punchResDir = "PSPunch\\Resources\\";
         public static string punchBuildDir = Path.Combine(PSAUtils.GetPSAttackDir(), "PSPunchBuild");
+        public static string psaLogo = @"
+
+__________  _________     /\    _____   __    __                 __    
+\______   \/   _____/    / /   /  _  \_/  |__/  |______    ____ |  | __
+ |     ___/\_____  \    / /   /  /_\  \   __\   __\__  \ _/ ___\|  |/ /
+ |    |    /        \  / /   /    |    \  |  |  |  / __ \\  \___|    < 
+ |____|   /_______  / / /    \____|__  /__|  |__| (____  /\___  >__|_ \
+                  \/  \/             \/                \/     \/     \/
+
+";
     }
 }

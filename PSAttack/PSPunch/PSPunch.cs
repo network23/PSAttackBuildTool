@@ -52,7 +52,6 @@ namespace PSAttack.PSPunch
 
         public void DownloadZip()
         {
-            Console.WriteLine("Downloading {0}", this.zipball_url);
             WebClient wc = new WebClient();
             wc.Headers.Add("user-agent", Strings.githubUserAgent);
             wc.DownloadFile(this.zipball_url, Strings.punchZipPath);
