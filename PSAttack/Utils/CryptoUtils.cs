@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using PSAttack.PSPunch;
 
 namespace PSAttack.Utils
 {
@@ -30,9 +31,9 @@ namespace PSAttack.Utils
             return result.ToString(); ;
         }
 
-        public static string GenerateKey()
+        public static string GenerateKey(Punch punch)
         {
-            string keyPath = Path.Combine(PSAUtils.GetPSAttackDir(), "key.txt");
+            string keyPath = Path.Combine(punch.modules_dir, "key.txt");
             if (!(File.Exists(keyPath)))
             {
                 string key = RandomString(64);
@@ -41,9 +42,10 @@ namespace PSAttack.Utils
             return File.ReadAllText(keyPath, Encoding.Unicode);
         }
 
-        public static void EncryptFile(string inputFile, string outputFile)
+        public static void EncryptFile(Punch punch, string inputFile, string outputFile)
         {
-            string key = GenerateKey();
+            string key = GenerateKey(punch);
+            Console.WriteLine("Encrypting with: {0}", key);
             byte[] keyBytes;
             keyBytes = Encoding.Unicode.GetBytes(key);
 
