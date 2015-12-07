@@ -4,7 +4,8 @@ _These projects are under heavy, active development and should gain features qui
 
 _If you have any questions or suggestions for PS>Attack and PS>Punch, feel free to reachout on twitter or via email: jaredhaight `at` prontonmail.com_
 
-## PS>Attack
+## PS>Attack [![Build status](https://ci.appveyor.com/api/projects/status/c5v1nxo38a7nec3b?svg=true)](https://ci.appveyor.com/project/jaredhaight/psattack)
+
 
 A platform for generating a portable powershell attack environment (from [PS>Punch](https://www.github.com/jaredhaight/PSPunch/)). The generated environment is a self contained exe and comes with a lot of the latest and greatest offensive PowerShell tools. 
 
