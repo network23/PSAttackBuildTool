@@ -22,7 +22,7 @@ namespace PSAttack
             Console.ReadLine();
 
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(Strings.psaLogo);
             Console.ForegroundColor = ConsoleColor.White;
 
