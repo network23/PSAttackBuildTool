@@ -59,20 +59,36 @@ __________  _________     /\    _____   __    __                 __
  Press enter to start PS>Attack.
 
 ";
-        public static string psaEndMsg = @"
- Build complete! Some warning messages are expected from the compiler 
- so don't be alarmed. If there are errors running your build of 
- PS>Punch, please submit an issue on github referencing the errors
- that came up during the build.
-
- Your build of PS>Punch is available at: 
+        public static string psaEndSuccess = @"
+ Build complete! Your build of PS>Punch is available at: 
 
  {0}
 
- You only need the PSPunch.exe file, the others are extra from the
- build process.
+ You'll need the PSPunch.exe and PSPunch.exe.config files, the 
+ others are extra from the build process. PSPunch.exe should be
+ run from the same folder that has that confif
 
  Press return to open up the folder. Thanks for using PS>Attack!
 ";
-    }
+    public static string psaEndNoMSBuild = @"
+ Hrm.. we couldn't find MSBuild.exe. That _should_ be here:
+
+ {0}
+
+ At least, that's where we were Windows is telling us your
+ .NET install is (which should contain MSBuild.exe). Get
+ MSBuild and then try again!
+
+ Press return to close this window.
+ ";
+    public static string psaEndFailure = @"
+ Oh no! It looks like the build failed. You should check the build
+ output above and see if there's an obvious issue. If you can't 
+ resolve the problem on your own, go ahead and submit an issue  at
+ https://github.com/jaredhaight/psattack/issues/ and maybe we can 
+ help. Make sure to include the output from the build process (the
+ gray text after '[*] Building PSPunch..' upto this error message)
+
+ Press return to close this window.
+ ";  }
 }

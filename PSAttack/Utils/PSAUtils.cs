@@ -59,7 +59,7 @@ namespace PSAttack.Utils
             return punchList[0];
         }
 
-        public static void BuildPunch(Punch punch)
+        public static int BuildPunch(Punch punch)
         {
             DateTime now = DateTime.Now;
             string buildDate = String.Format("{0:MMMM dd yyyy} at {0:hh:mm:ss tt}", now);
@@ -86,9 +86,11 @@ namespace PSAttack.Utils
                 string err = msbuild.StandardError.ReadToEnd();
                 Console.WriteLine(err);
                 msbuild.WaitForExit();
+                int exitCode = msbuild.ExitCode;
                 msbuild.Close();
+                return exitCode;
             }
-
+            return 999;
         }
     }
 }

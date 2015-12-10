@@ -63,9 +63,9 @@ namespace PSAttack.PSPunch
             {
                 Directory.Delete(this.modules_dir, true);
             }
-            catch
+            catch (Exception e)
             {
-                Console.WriteLine("Could not clear out modules dir at {0}", this.modules_dir);
+                Console.WriteLine("Could not clear out modules dir at {0}.\n Error message {1}", this.modules_dir, e.Message);
             }
             if (!(Directory.Exists(this.modules_dir)))
             {

@@ -52,18 +52,47 @@ namespace PSAttack
             foreach (Module module in modules)
             {
                 string dest = Path.Combine(Strings.moduleSrcDir, (module.Name + ".ps1"));
-                string encOutfile = punch.modules_dir + module.Name + ".ps1.enc";
-                PSAUtils.DownloadFile(module.URL, dest);
-                Console.WriteLine("[*] Encrypting: {0}", dest);
-                CryptoUtils.EncryptFile(punch, dest, encOutfile);
+                string encOutfile = punch.modules_dir + CryptoUtils.HashString(module.Name) + ".ps1.enc";
+                try
+                {
+                    PSAUtils.DownloadFile(module.URL, dest);
+                    Console.WriteLine("[*] Encrypting: {0}", dest);
+                    CryptoUtils.EncryptFile(punch, dest, encOutfile);
+                }
+                catch (Exception e)
+                {
+                    ConsoleColor origColor = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("There was an error processing {0}. \nError message: \n\n{1}\n", module.Name, e.Message);
+                    Console.ForegroundColor = origColor;
+                }
             }
             Console.WriteLine("[*] Building PSPunch!");
             Console.ForegroundColor = ConsoleColor.Gray;
-            PSAUtils.BuildPunch(punch);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(Strings.psaEndMsg, Strings.punchBuildDir);
-            Console.ReadLine();
-            Process.Start(Strings.punchBuildDir);
+            int exitCode = PSAUtils.BuildPunch(punch);
+            if (exitCode == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(Strings.psaEndSuccess, Strings.punchBuildDir);
+                Console.ReadLine();
+                Process.Start(Strings.punchBuildDir);
+            }
+            else if (exitCode == 999)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(Strings.psaEndNoMSBuild, System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory());
+                Console.ReadLine();
+                Environment.Exit(exitCode);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(Strings.psaEndFailure);
+                Console.ReadLine();
+                Environment.Exit(exitCode);
+
+            }
+
         }
     }
 }
