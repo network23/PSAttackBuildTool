@@ -24,6 +24,7 @@ namespace PSAttack
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(Strings.psaLogo);
+            Console.WriteLine("Version {0}\n", Strings.version);
             Console.ForegroundColor = ConsoleColor.White;
 
             StreamReader sr = new StreamReader("modules.json");

@@ -10,6 +10,7 @@ namespace PSAttack
 {
     class Strings
     {
+        public static string version = "0.2-alpha";
         public static string githubUserAgent = "PSAttack";
         public static string punchURL = "https://api.github.com/repos/jaredhaight/pspunch/releases";
         public static string punchUnzipDir = Path.Combine(PSAUtils.GetPSAttackDir(),"PSPunch");
