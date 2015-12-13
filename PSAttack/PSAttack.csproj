@@ -57,6 +57,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSPunch\PSPunch.cs" />
+    <Compile Include="PSPunch\PSPunchCSProj.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSPunchCSProj.tt</DependentUpon>
+    </Compile>
     <Compile Include="Strings.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\PSAUtils.cs" />
@@ -68,7 +73,15 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PSPunch\PSPunchCSProj.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PSPunchCSProj.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

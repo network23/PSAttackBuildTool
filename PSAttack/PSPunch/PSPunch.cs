@@ -34,11 +34,19 @@ namespace PSAttack.PSPunch
             }
         }
 
-        public string res_dir
+        public string resources_dir
         {
             get
             {
-                return Path.Combine(this.unzipped_dir, Strings.punchResDir);
+                return Path.Combine(this.unzipped_dir, Strings.punchResourcesDir);
+            }
+        }
+
+        public string csproj_file
+        {
+            get
+            {
+                return Path.Combine(this.unzipped_dir, Strings.punchCSProjFile);
             }
         }
         public string build_args
@@ -70,6 +78,18 @@ namespace PSAttack.PSPunch
             if (!(Directory.Exists(this.modules_dir)))
             {
                 Directory.CreateDirectory(this.modules_dir);
+            }
+        }
+
+        public void ClearCsproj()
+        {
+            try
+            {
+                File.Delete(this.csproj_file);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not clear out CSProj file at {0}.\n Error message {1}", this.csproj_file, e.Message);
             }
         }
     }

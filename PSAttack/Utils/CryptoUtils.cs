@@ -57,26 +57,23 @@ namespace PSAttack.Utils
             return sb.ToString();
         }
 
-        public static string EncryptString(Punch punch, string plainText)
+        public static string EncryptString(Punch punch, string text)
         {
             string key = GenerateKey(punch);
-            string initVector = "bdstewlk0tes43rs";
-            int keysize = 256;
-            byte[] initVectorBytes = Encoding.UTF8.GetBytes(initVector);
-            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
-            PasswordDeriveBytes password = new PasswordDeriveBytes(key, null);
-            byte[] keyBytes = password.GetBytes(keysize / 8);
-            RijndaelManaged symmetricKey = new RijndaelManaged();
-            symmetricKey.Mode = CipherMode.CBC;
-            ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes);
-            MemoryStream memoryStream = new MemoryStream();
-            CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
-            cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-            cryptoStream.FlushFinalBlock();
-            byte[] cipherTextBytes = memoryStream.ToArray();
-            memoryStream.Close();
-            cryptoStream.Close();
-            return Convert.ToBase64String(cipherTextBytes);
+            byte[] keyBytes;
+            keyBytes = Encoding.Unicode.GetBytes(key);
+
+            Rfc2898DeriveBytes derivedKey = new Rfc2898DeriveBytes(key, keyBytes);
+
+            RijndaelManaged rijndaelCSP = new RijndaelManaged();
+            rijndaelCSP.Key = derivedKey.GetBytes(rijndaelCSP.KeySize / 8);
+            rijndaelCSP.IV = derivedKey.GetBytes(rijndaelCSP.BlockSize / 8);
+
+            ICryptoTransform encryptor = rijndaelCSP.CreateEncryptor();
+
+            byte[] inputbuffer = Encoding.Unicode.GetBytes(text);
+            byte[] outputBuffer = encryptor.TransformFinalBlock(inputbuffer, 0, inputbuffer.Length);
+            return Convert.ToBase64String(outputBuffer).Replace("/","_");
         }
 
         public static void EncryptFile(Punch punch, string inputFile, string outputFile)

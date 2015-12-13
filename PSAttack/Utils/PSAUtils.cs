@@ -18,6 +18,24 @@ namespace PSAttack.Utils
             return moduleList;
         }
 
+        public static void BuildCsproj(List<Module> modules, Punch punch)
+        {
+            punch.ClearCsproj();
+            List<string> files = new List<string>();
+            foreach (Module module in modules)
+            {
+                files.Add(CryptoUtils.EncryptString(punch, module.Name));
+            }
+            PSPunchCSProj csproj = new PSPunchCSProj();
+            csproj.Session = new Dictionary<string, object>();
+            csproj.Session.Add("files", files);
+            csproj.Initialize();
+
+            var generatedCode = csproj.TransformText();
+            Console.WriteLine("Writing PSPunch.csproj to {0}", punch.csproj_file);
+            File.WriteAllText(punch.csproj_file, generatedCode);
+        }
+
         public static string DownloadFile(string url, string dest)
         {
             WebClient wc = new WebClient();
@@ -63,7 +81,7 @@ namespace PSAttack.Utils
         {
             DateTime now = DateTime.Now;
             string buildDate = String.Format("{0:MMMM dd yyyy} at {0:hh:mm:ss tt}", now);
-            using (StreamWriter buildDateFile = new StreamWriter(Path.Combine(punch.res_dir, "attackDate.txt")))
+            using (StreamWriter buildDateFile = new StreamWriter(Path.Combine(punch.resources_dir, "attackDate.txt")))
             {
                 buildDateFile.Write(buildDate);
             }

@@ -17,7 +17,8 @@ namespace PSAttack
         public static string punchZipPath = Path.Combine(PSAUtils.GetPSAttackDir(), "PSPunch.zip");
         public static string moduleSrcDir = Path.Combine(PSAUtils.GetPSAttackDir(), "ModuleSrc");
         public static string punchModulesDir = "PSPunch\\Modules\\";
-        public static string punchResDir = "PSPunch\\Resources\\";
+        public static string punchResourcesDir = "PSPunch\\Resources\\";
+        public static string punchCSProjFile = "PSPunch\\PSPunch.csproj";
         public static string punchBuildDir = Path.Combine(PSAUtils.GetPSAttackDir(), "PSPunchBuild");
         public static string psaLogo = @"
 

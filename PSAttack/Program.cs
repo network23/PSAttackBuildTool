@@ -53,7 +53,7 @@ namespace PSAttack
             foreach (Module module in modules)
             {
                 string dest = Path.Combine(Strings.moduleSrcDir, (module.Name + ".ps1"));
-                string encOutfile = punch.modules_dir + CryptoUtils.HashString(module.Name) + ".ps1.enc";
+                string encOutfile = punch.modules_dir + CryptoUtils.EncryptString(punch, module.Name) + ".ps1.enc";
                 try
                 {
                     PSAUtils.DownloadFile(module.URL, dest);
@@ -68,6 +68,8 @@ namespace PSAttack
                     Console.ForegroundColor = origColor;
                 }
             }
+            Console.WriteLine("Generating PSPunch.csproj at {0}", punch.csproj_file);
+            PSAUtils.BuildCsproj(modules, punch);
             Console.WriteLine("[*] Building PSPunch!");
             Console.ForegroundColor = ConsoleColor.Gray;
             int exitCode = PSAUtils.BuildPunch(punch);
