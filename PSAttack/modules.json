@@ -99,6 +99,18 @@
       "name": "Powercat",
       "url": "https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1",
       "desc": "A full featured netcat in powershell",
-      "keywords": ["exfiltration", "execution"]
+      "keywords": [ "exfiltration", "execution" ]
+    },
+    {
+      "name": "Inveigh-Relay",
+      "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh-Relay.ps1",
+      "desc": "Invoke-InveighRelay is the main Inveigh SMB relay function. Invoke-InveighRelay can be used either through Invoke-Inveigh or as a standalone function.",
+      "keywords": [ "exploitation" ]
+    },
+    {
+      "name": "Inveigh",
+      "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh.ps1",
+      "desc": "Inveigh is a Windows PowerShell LLMNR/NBNS spoofer with challenge/response capture over HTTP(S)/SMB and NTLMv2 HTTP to SMB relay.",
+      "keywords": [ "exploitation" ]
     }
   ]
