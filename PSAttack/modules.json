@@ -19,7 +19,7 @@
     },
     {
       "name": "VolumeShadowCopyTools",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/VolumeShadowCopyTools.ps1"
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/VolumeShadowCopyTools.ps1",
       "desc": "Various tools to help work with volume shadow copies",
       "keywords": [ "exfiltration" ]
     },
