@@ -26,6 +26,7 @@ Offensively, PS>Punch contains commands for Privilege Escalation, Recon and Data
   - Invoke-NinjaCopy
   - Invoke-Shellcode
   - Invoke-WMICommand
+  - VolumeShadowCopyTools
 * [PowerTools](https://github.com/PowerShellEmpire/PowerTools)
   - PowerUp
   - PowerView
@@ -35,7 +36,9 @@ Offensively, PS>Punch contains commands for Privilege Escalation, Recon and Data
   - DNS-TXT-Pwnage
   - Get-Infromation
   - Get-WLAN-Keys
+  - Invoke-PsUACme
 * [Powercat](https://github.com/besimorhino/powercat)
+* [Inveigh](https://github.com/Kevin-Robertson/Inveigh)
 
 #### Greetz
 PS>Attack was inspired by and benefits from a lot of incredible people in the PowerShell community. Particularly [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. Besides writing the modules and commands that give PS>Punch it's.. punch, their various projects have inspired alot of my approach to PS>Attack and PS>Punch as well as my decision to try and contirbute something back to the community.
