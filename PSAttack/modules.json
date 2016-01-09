@@ -43,7 +43,7 @@
     },
     {
       "name": "Invoke-Shellcode",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke--Shellcode.ps1",
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-Shellcode.ps1",
       "desc": "Inject shellcode into the Process of your choosing or within the running process. Contains builtin meterpreter payloads.",
       "keywords": [ "execution" ]
     },

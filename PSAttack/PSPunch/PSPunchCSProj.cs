@@ -69,18 +69,20 @@ namespace PSAttack.PSPunch
                     ">\r\n    <Reference Include=\"System.Management.Automation\" />\r\n    <Reference Incl" +
                     "ude=\"System.Xml.Linq\" />\r\n    <Reference Include=\"System.Data.DataSetExtensions\"" +
                     " />\r\n    <Reference Include=\"System.Data\" />\r\n    <Reference Include=\"System.Xml" +
-                    "\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Compile Include=\"Utils\\Display.cs\" />\r" +
-                    "\n    <Compile Include=\"PSPunchProcessing\\PunchState.cs\" />\r\n    <Compile Include" +
-                    "=\"Utils\\CryptoUtils.cs\" />\r\n    <Compile Include=\"PSPunchProcessing\\Processing.c" +
-                    "s\" />\r\n    <Compile Include=\"Program.cs\" />\r\n    <Compile Include=\"Properties\\As" +
-                    "semblyInfo.cs\" />\r\n    <Compile Include=\"PSPunchShell\\PSParameter.cs\" />\r\n    <C" +
-                    "ompile Include=\"PSPunchShell\\PSParamType.cs\" />\r\n    <Compile Include=\"PSPunchSh" +
-                    "ell\\PSPunchHost.cs\" />\r\n    <Compile Include=\"PSPunchShell\\PSPunchHostRawUserInt" +
-                    "erface.cs\" />\r\n    <Compile Include=\"PSPunchShell\\PSPunchHostUserInterface.cs\" /" +
-                    ">\r\n    <Compile Include=\"Strings.cs\" />\r\n    <Compile Include=\"Utils\\PSPUtils.cs" +
-                    "\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <None Include=\"app.config\" />\r\n\t");
+                    "\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Compile Include=\"PSPunchProcessing\\Tab" +
+                    "Expansion.cs\" />\r\n    <Compile Include=\"PSPunchShell\\PSColors.cs\" />\r\n    <Compi" +
+                    "le Include=\"Utils\\Display.cs\" />\r\n    <Compile Include=\"PSPunchProcessing\\PunchS" +
+                    "tate.cs\" />\r\n    <Compile Include=\"Utils\\CryptoUtils.cs\" />\r\n    <Compile Includ" +
+                    "e=\"PSPunchProcessing\\Processing.cs\" />\r\n    <Compile Include=\"Program.cs\" />\r\n  " +
+                    "  <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n    <Compile Include=\"PSPunc" +
+                    "hShell\\PSParameter.cs\" />\r\n    <Compile Include=\"PSPunchShell\\PSParamType.cs\" />" +
+                    "\r\n    <Compile Include=\"PSPunchShell\\PSPunchHost.cs\" />\r\n    <Compile Include=\"P" +
+                    "SPunchShell\\PSPunchHostRawUserInterface.cs\" />\r\n    <Compile Include=\"PSPunchShe" +
+                    "ll\\PSPunchHostUserInterface.cs\" />\r\n    <Compile Include=\"Strings.cs\" />\r\n    <C" +
+                    "ompile Include=\"Utils\\PSPUtils.cs\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <None " +
+                    "Include=\"app.config\" />\r\n\t");
             
-            #line 98 "C:\Users\jared\Documents\GitHub\PSAttack\PSAttack\PSPunch\PSPunchCSProj.tt"
+            #line 100 "C:\Users\jared\Documents\GitHub\PSAttack\PSAttack\PSPunch\PSPunchCSProj.tt"
  foreach (string file in this.files ) {
 	WriteLine("<EmbeddedResource Include=\"Modules\\{0}.ps1.enc\"/>", file);
 	 } 
