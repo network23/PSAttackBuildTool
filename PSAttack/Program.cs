@@ -15,6 +15,7 @@ namespace PSAttack
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(120, 40);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(Strings.psaWarning);
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -23,14 +24,18 @@ namespace PSAttack
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(Strings.psaLogo);
+            Random random = new Random();
+            int psaLogoInt = random.Next(Strings.psaLogos.Count);
+            Console.WriteLine(Strings.psaLogos[psaLogoInt]);
             Console.WriteLine("Version {0}\n", Strings.version);
             Console.ForegroundColor = ConsoleColor.White;
 
             StreamReader sr = new StreamReader("modules.json");
             string modulesJson = sr.ReadToEnd();
+            MemoryStream memReader = new MemoryStream(Encoding.UTF8.GetBytes(modulesJson));
+
             Console.WriteLine("[*] Getting modules from local json.");
-            List<Module> modules = PSAUtils.GetModuleList(modulesJson);
+            List<Module> modules = PSAUtils.GetModuleList(memReader);
             string workingDir = PSAUtils.GetPSAttackDir();
 
             Console.WriteLine("[*] Looking for latest release of PS>Punch");
@@ -52,11 +57,11 @@ namespace PSAttack
 
             foreach (Module module in modules)
             {
-                string dest = Path.Combine(Strings.moduleSrcDir, (module.Name + ".ps1"));
-                string encOutfile = punch.modules_dir + CryptoUtils.EncryptString(punch, module.Name) + ".ps1.enc";
+                string dest = Path.Combine(Strings.moduleSrcDir, (module.name + ".ps1"));
+                string encOutfile = punch.modules_dir + CryptoUtils.EncryptString(punch, module.name) + ".ps1.enc";
                 try
                 {
-                    PSAUtils.DownloadFile(module.URL, dest);
+                    PSAUtils.DownloadFile(module.url, dest);
                     Console.WriteLine("[*] Encrypting: {0}", dest);
                     CryptoUtils.EncryptFile(punch, dest, encOutfile);
                 }
@@ -64,7 +69,7 @@ namespace PSAttack
                 {
                     ConsoleColor origColor = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("There was an error processing {0}. \nError message: \n\n{1}\n", module.Name, e.Message);
+                    Console.WriteLine("There was an error processing {0}. \nError message: \n\n{1}\n", module.name, e.Message);
                     Console.ForegroundColor = origColor;
                 }
             }

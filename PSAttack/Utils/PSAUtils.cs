@@ -3,8 +3,9 @@ using System.IO;
 using System.IO.Compression;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using System.Net;
-using Newtonsoft.Json;
+using System.Runtime.Serialization.Json;
 using PSAttack.Modules;
 using PSAttack.PSPunch;
 
@@ -12,9 +13,10 @@ namespace PSAttack.Utils
 {
     class PSAUtils
     {
-        public static List<Module> GetModuleList(string JSON)
+        public static List<Module> GetModuleList(MemoryStream JSON)
         {
-            List<Module> moduleList = JsonConvert.DeserializeObject<List<Module>>(JSON);
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Module>));
+            List<Module> moduleList = (List<Module>)serializer.ReadObject(JSON);
             return moduleList;
         }
 
@@ -24,7 +26,7 @@ namespace PSAttack.Utils
             List<string> files = new List<string>();
             foreach (Module module in modules)
             {
-                files.Add(CryptoUtils.EncryptString(punch, module.Name));
+                files.Add(CryptoUtils.EncryptString(punch, module.name));
             }
             PSPunchCSProj csproj = new PSPunchCSProj();
             csproj.Session = new Dictionary<string, object>();
@@ -73,7 +75,9 @@ namespace PSAttack.Utils
             // This took a while to figure out: https://developer.github.com/v3/#user-agent-required
             wc.Headers.Add("user-agent", Strings.githubUserAgent);
             string JSON = wc.DownloadString(URL);
-            List<Punch> punchList = JsonConvert.DeserializeObject<List<Punch>>(JSON);
+            MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(JSON));
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Punch>));
+            List<Punch> punchList = (List<Punch>)serializer.ReadObject(stream);
             return punchList[0];
         }
 

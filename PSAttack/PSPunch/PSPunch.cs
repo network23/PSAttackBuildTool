@@ -5,25 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
-using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 using PSAttack.Utils;
 
 namespace PSAttack.PSPunch
 {
+    [DataContract]
     class Punch
     {
-        [JsonProperty("name")]
+        [DataMember]
         public string Name { get; set; }
-
-        [JsonProperty("tag_name")]
+        [DataMember]
         public string tag_name { get; set; }
-
-        [JsonProperty("zipball_url")]
+        [DataMember]
         public string zipball_url { get; set; }
-
-        [JsonProperty("published_at")]
-        public DateTime published_at { get; set; }
+        [DataMember]
+        public string published_at { get; set; }
 
         public string unzipped_dir { get; set; }
 
