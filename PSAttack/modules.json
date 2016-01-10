@@ -1,116 +1,82 @@
-﻿  [
+﻿[
     {
       "name": "Invoke-Mimikatz",
-      "url": "https://raw.githubusercontent.com/PowerShellEmpire/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1",
-      "desc": "Gets credentials stored in memory on local or remote computers by running mimikatz",
-      "keywords": [ "passwords" ]
+      "url": "https://raw.githubusercontent.com/PowerShellEmpire/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1"
     },
     {
       "name": "Invoke-GPPPassword",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1",
-      "desc": "Gets credentials from Group Policy Preferences in a Domain",
-      "keywords": [ "passwords" ]
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1"
     },
     {
       "name": "Invoke-Ninjacopy",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1",
-      "desc": "Bypasses ACL and file locks to copy files from a disk",
-      "keywords": [ "exfiltration" ]
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1"
     },
     {
       "name": "VolumeShadowCopyTools",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/VolumeShadowCopyTools.ps1",
-      "desc": "Various tools to help work with volume shadow copies",
-      "keywords": [ "exfiltration" ]
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/VolumeShadowCopyTools.ps1"
     },
     {
       "name": "Invoke-PsUACme",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Escalation/Invoke-PsUACme.ps1",
-      "desc": "Nishang script which uses known methods to bypass UAC",
-      "keywords": [ "privilage escalation" ]
-    },
-    {
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Escalation/Invoke-PsUACme.ps1"
+    },   
+	{
       "name": "PowerUp",
-      "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerUp/PowerUp.ps1",
-      "desc": "Provides a variety of privalage escalation modules",
-      "keywords": [ "privilage escalation" ]
+      "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerUp/PowerUp.ps1"
     },
     {
       "name": "PowerView",
-      "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1",
-      "desc": "Provides a variety of tools for network reconnonsiance, including tools for exploring Active Directory domains and hunting users.",
-      "keywords": [ "recon" ]
+      "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1"
     },
     {
       "name": "Invoke-Shellcode",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-Shellcode.ps1",
-      "desc": "Inject shellcode into the Process of your choosing or within the running process. Contains builtin meterpreter payloads.",
-      "keywords": [ "execution" ]
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-Shellcode.ps1"
     },
     {
       "name": "Invoke-WMICommand",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-WmiCommand.ps1",
-      "desc": "Execute powershell commands on remote hosts using WMI as a pure C2 channel",
-      "keywords": [ "execution" ]
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-WmiCommand.ps1"
     },
     {
       "name": "Add-Exfiltration",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Add-Exfiltration.ps1",
-      "desc": "Exfiltrates data to Gmail, Pastebin, a Web server or DNS server through TXT queries",
-      "keywords": [ "exfiltration" ]
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Add-Exfiltration.ps1"
     },
     {
       "name": "Do-Exfiltration",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Do-Exfiltration.ps1",
-      "desc": "Used with Add-Exfiltration to send data to Gmail, Pastebin, a webserver or DNS",
-      "keywords": [ "exfiltration" ]
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Do-Exfiltration.ps1"
     },
     {
       "name": "Gupt-Backdoor",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/Gupt-Backdoor.ps1",
-      "desc": "Gupt looks for a specially crafted Wireless SSID from list of all avaliable networks. It matches first four characters of each SSID with the parameter MagicString. On a match, if the 5th character is a 'c', rest of the SSID name is considered to be a command and exeucted. If the 5th character is a 'u', rest of the SSID is considered the id part of Google URL Shortener and a script is downloaded and executed in memory from the URL. See examples for usage.",
-      "keywords": [ "backdoor" ]
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/Gupt-Backdoor.ps1"
     },
     {
       "name": "dns_txt_pwnage",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/DNS_TXT_Pwnage.ps1",
-      "desc": "Continuely queries a domains TXT records and excutes them (must use the out-dnstxt command to generate the commands)",
-      "keywords": [ "backdoor" ]
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/DNS_TXT_Pwnage.ps1"
     },
     {
       "name": "Out-Dnstxt",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Out-DnsTxt.ps1",
-      "desc": "Used to encode commands for use with the dns_txt_pwnage backdoor",
-      "keywords": [ "backdoor" ]
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Out-DnsTxt.ps1"
     },
     {
       "name": "Get-Information",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-Information.ps1",
-      "desc": "Pulls information about the local host",
-      "keywords": [ "recon" ]
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-Information.ps1"
     },
     {
       "name": "Get-Wlan-Keys",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-WLAN-Keys.ps1",
-      "desc": "Dumps keys for WLAN profiles.",
-      "keywords": [ "passwords" ]
+      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-WLAN-Keys.ps1"
     },
     {
       "name": "Powercat",
-      "url": "https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1",
-      "desc": "A full featured netcat in powershell",
-      "keywords": [ "exfiltration", "execution" ]
+      "url": "https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1"
     },
     {
       "name": "Inveigh-Relay",
-      "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh-Relay.ps1",
-      "desc": "Invoke-InveighRelay is the main Inveigh SMB relay function. Invoke-InveighRelay can be used either through Invoke-Inveigh or as a standalone function.",
-      "keywords": [ "exploitation" ]
+      "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh-Relay.ps1"
     },
     {
       "name": "Inveigh",
-      "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh.ps1",
-      "desc": "Inveigh is a Windows PowerShell LLMNR/NBNS spoofer with challenge/response capture over HTTP(S)/SMB and NTLMv2 HTTP to SMB relay.",
-      "keywords": [ "exploitation" ]
-    }
-  ]
+      "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh.ps1"
+    },
+	{
+	  "name": "Get-Attack",
+	  "url":"https://raw.githubusercontent.com/jaredhaight/PSPunch/master/PSPunch/Get-Attack/get-attack.ps1"
+	}
+]
