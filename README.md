@@ -1,4 +1,4 @@
-_PS>Attack is currently available as an [alpha](https://github.com/jaredhaight/psattack/releases/). You can also download the alpha for PS>Punch (the portable environment that PS>Attack customizes) [here](https://github.com/jaredhaight/PSPunch/releases/)._
+_PS>Attack is currently available as an [beta](https://github.com/jaredhaight/psattack/releases/). You can also download the beta for PS>Punch (the portable environment that PS>Attack customizes) [here](https://github.com/jaredhaight/PSPunch/releases/)._
 
 _These projects are under heavy, active development and should gain features quickly. I'm planning to have "1.0" ready to go early 2016. I'm writing an ongoing series of articles about where this project is at [here](https://www.psattack.com/tags/psattack/)_
 
@@ -39,6 +39,10 @@ Offensively, PS>Punch contains commands for Privilege Escalation, Recon and Data
   - Invoke-PsUACme
 * [Powercat](https://github.com/besimorhino/powercat)
 * [Inveigh](https://github.com/Kevin-Robertson/Inveigh)
+
+It also comes bundled with `get-attack`, a command that allows you to search through the included commands and find the attack that you're looking for.
+
+![Get-Attack](http://i.imgur.com/XKUEvkl.png)
 
 #### Greetz
 PS>Attack was inspired by and benefits from a lot of incredible people in the PowerShell community. Particularly [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. Besides writing the modules and commands that give PS>Punch it's.. punch, their various projects have inspired alot of my approach to PS>Attack and PS>Punch as well as my decision to try and contirbute something back to the community.
