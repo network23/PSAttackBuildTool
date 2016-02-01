@@ -1,7 +1,7 @@
 ﻿[
     {
       "name": "Invoke-Mimikatz",
-      "url": "https://raw.githubusercontent.com/PowerShellEmpire/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1"
+      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1"
     },
     {
       "name": "Invoke-GPPPassword",
