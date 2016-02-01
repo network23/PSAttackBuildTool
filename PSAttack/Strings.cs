@@ -10,7 +10,7 @@ namespace PSAttack
 {
     class Strings
     {
-        public static string version = "0.2.0-beta";
+        public static string version = "0.2.1-beta";
         public static string githubUserAgent = "PSAttack";
         public static string punchURL = "https://api.github.com/repos/jaredhaight/pspunch/releases";
         public static string punchUnzipDir = Path.Combine(PSAUtils.GetPSAttackDir(), "PSPunch");
@@ -141,9 +141,9 @@ namespace PSAttack
  versions of the files in modules.json, encrypts them and then
  compiles PS>Punch with these new and unique files. Antivirus
  software (including Windows Defender) may flag the downloaded
- files as malicious. Future error handling will alert to this
- fact. In the mean time you'll have to configure your AV soft
- ware to allow these actions.
+ files as malicious.  If you run into issues with these files
+ you will have to configure your AV software to allow them to
+ be downloaded or remove them from modules.json.
 
  As part of the build process, PS>Attack relies on a full
  install of .NET 3.5. Targeting 3.5 allows PS>Punch to work
@@ -162,7 +162,7 @@ namespace PSAttack
 
  You'll need the PSPunch.exe and PSPunch.exe.config files, the 
  others are extra from the build process. PSPunch.exe should be
- run from the same folder that has that confif
+ run from the same folder that has the config file.
 
  Press return to open up the folder. Thanks for using PS>Attack!
 ";
