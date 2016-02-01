@@ -15,7 +15,6 @@ namespace PSAttack
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(120, 40);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(Strings.psaWarning);
             Console.ForegroundColor = ConsoleColor.Gray;
