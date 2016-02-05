@@ -77,6 +77,6 @@
     },
 	{
 	  "name": "Get-Attack",
-	  "url":"https://raw.githubusercontent.com/jaredhaight/PSPunch/master/PSPunch/Get-Attack/get-attack.ps1"
+	  "url":"https://raw.githubusercontent.com/jaredhaight/PSAttack/master/PSAttack/Get-Attack/get-attack.ps1"
 	}
 ]

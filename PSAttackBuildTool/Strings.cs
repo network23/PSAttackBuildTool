@@ -4,23 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PSAttack.Utils;
+using PSAttackBuildTool.Utils;
 
-namespace PSAttack
+namespace PSAttackBuildTool
 {
     class Strings
     {
-        public static string version = "0.2.1-beta";
-        public static string githubUserAgent = "PSAttack";
-        public static string punchURL = "https://api.github.com/repos/jaredhaight/pspunch/releases";
-        public static string punchUnzipDir = Path.Combine(PSAUtils.GetPSAttackDir(), "PSPunch");
-        public static string punchZipPath = Path.Combine(PSAUtils.GetPSAttackDir(), "PSPunch.zip");
-        public static string moduleSrcDir = Path.Combine(PSAUtils.GetPSAttackDir(), "ModuleSrc");
-        public static string punchModulesDir = "PSPunch\\Modules\\";
-        public static string punchResourcesDir = "PSPunch\\Resources\\";
-        public static string punchCSProjFile = "PSPunch\\PSPunch.csproj";
-        public static string punchBuildDir = Path.Combine(PSAUtils.GetPSAttackDir(), "PSPunchBuild");
-        public static List<string> psaLogos = new List<string>()
+        public static string version = "0.2.2-beta";
+        public static string githubUserAgent = "PSAttackBuildTool";
+        public static string attackURL = "https://api.github.com/repos/jaredhaight/psattack/releases";
+        public static string attackUnzipDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackSrc");
+        public static string attackZipPath = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttack.zip");
+        public static string moduleSrcDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ModuleSrc");
+        public static string attackModulesDir = "PSAttack\\Modules\\";
+        public static string attackResourcesDir = "PSAttack\\Resources\\";
+        public static string attackCSProjFile = "PSAttack\\PSAttack.csproj";
+        public static string attackBuildDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackBuild");
+        public static List<string> psabtLogos = new List<string>()
         {
 @"
   _____   _______       _______ _______       _____ _  __
@@ -29,6 +29,7 @@ namespace PSAttack
  |  ___/ \___ \  > / /\ \ | |     | | / /\ \| |    |  <  
  | |     ____) |/ / ____ \| |     | |/ ____ | |____| . \ 
  |_|    |_____//_/_/    \_|_|     |_/_/    \_\_____|_|\_\
+                                             [BUILD TOOL]
 ",
 @"
  (   (                                           )  
@@ -38,15 +39,8 @@ namespace PSAttack
 (_))(_))__)\ _ )\(_(_()(_(_()) )\ _ )\ )\___|_ ((_) 
 | _ / __\ (_)_\(_|_   _|_   _| (_)_\(_((/ __| |/ /  
 |  _\__ \> / _ \   | |   | |    / _ \  | (__  ' <   
-|_| |___/_/_/ \_\  |_|   |_|   /_/ \_\  \___|_|\_\  
-",
-@"
-   ___ ____    _  _____ _____  _     ___      
-  / _ / _\ \  /_\/__   /__   \/_\   / __\/\ /\
- / /_)\ \ \ \//_\\ / /\/ / /\//_\\ / /  / //_/
-/ ___/_\ \/ /  _  / /   / / /  _  / /__/ __ \ 
-\/    \__/_/\_/ \_\/    \/  \_/ \_\____\/  \/ 
-                                              
+|_| |___/_/_/ \_\  |_|   |_|   /_/ \_\  \___|_|\_\ 
+         \/\/\/\/ BUILD TOOL \/\/\/\/
 ",
 @"
            __                                       
@@ -54,7 +48,7 @@ namespace PSAttack
 |  _  |   __\ \|  _  |_   _|_   _|  _  |     |  |  |
 |   __|__   |> |     | | |   | | |     |   --|    -|
 |__|  |_____/ /|__|__| |_|   |_| |__|__|_____|__|__|
-           /_/                                      
+           /_/                            BUILD TOOL                
 
 ",
 @"
@@ -62,8 +56,7 @@ namespace PSAttack
   / _ \/ __\ \ / _ /_  __/_  __/ _ |/ ___/ //_/
  / ____\ \  > / __ |/ /   / / / __ / /__/ ,<   
 /_/  /___/ /_/_/ |_/_/   /_/ /_/ |_\___/_/|_|  
-                                               
-
+               ///BUILD TOOL///
 ",
 @"
  ######   #####  #       #    ####### #######    #     #####  #    # 
@@ -73,6 +66,7 @@ namespace PSAttack
  #             #   #  #######    #       #    ####### #       #  #   
  #       #     #  #   #     #    #       #    #     # #     # #   #  
  #        #####  #    #     #    #       #    #     #  #####  #    # 
+                          BUILD TOOL
                                                                      
 ",
 @"
@@ -83,13 +77,13 @@ namespace PSAttack
   \ \ \/   /\ \L\ \ /  / \ \ \/\ \ \ \ \  \ \ \\ \ \/\ \ \ \L\ \ \ \\`\  
    \ \_\   \ `\____/\_/   \ \_\ \_\ \ \_\  \ \_\\ \_\ \_\ \____/\ \_\ \_\
     \/_/    \/_____\//     \/_/\/_/  \/_/   \/_/ \/_/\/_/\/___/  \/_/\/_/
-
+                                                     \\\\\BUILD TOOL\\\\\
 ",
 @"
   _   __       ___ ___      _    
  |_) (_  \  /\  |   |  /\  /  |/ 
  |   __) / /--\ |   | /--\ \_ |\ 
-                                 
+         (build tool)                       
 ",
 @"
  ______   ______    _______ _______ _______ _______ _______ _     _ 
@@ -98,7 +92,7 @@ namespace PSAttack
 |  ____/ \____ \ ) |  ___  |  | |     | |  |  ___  | |     |  _   _)
 | |      _____) (_/| |   | |  | |     | |  | |   | | |_____| |  \ \ 
 |_|     (______/   |_|   |_|  |_|     |_|  |_|   |_|\______|_|   \_)
-                                                                    
+                            BUILD TOOL                                                                    
 ",
 @"
       ___      ___         ___                          ___         ___         ___     
@@ -112,56 +106,56 @@ namespace PSAttack
    \  \:\   \__\/ /:/   \  \:\         \  \:\   \  \:\  \:\      \  \:\/:/   \  \:\     
     \  \:\    /__/:/     \  \:\         \__\/    \__\/\  \:\      \  \::/     \  \:\    
      \__\/    \__\/       \__\/                        \__\/       \__\/       \__\/    
-
+                                     
+                                    [BUILD TOOL]
 ",
 @"
    _ \    ___| \ \     \     |    |                 |     | 
   |   | \___ \  \ \   _ \    __|  __|   _` |   __|  |  /  | 
   ___/        |   /  ___ \   |    |    (   |  (       <  _| 
  _|     _____/  _/ _/    _\ \__| \__| \__,_| \___| _|\_\ _) 
-                                                            
+                                               [build tool]
 "
         };
         public static string psaWarning = @"
- ############################################################
- #                                                          #
- #     PLEASE NOTE: This is a beta release of PS>Attack     #
- #   Things might be buggy. If you find something that's    #
- #             broken please submit an issue at             #
- #      https://github.com/jaredhaight/psattack/issues      #
- #        or even better, submit a pull request! :-D        #
- #                                                          #
- #         For more info view the release notes at          #
- #   https://www.github.com/jaredhaight/psattack/releases   #
- #                                                          #
- ############################################################
+ ###################################################################
+ #                                                                 #
+ #   PLEASE NOTE: This is a beta release of the PS>Attack Build    # 
+ #    Tool. Things might be buggy. If you find something that's    # 
+ #                broken please submit an issue at                 #
+ #    https://github.com/jaredhaight/psattackbuildtool/issues      #
+ #           or even better, submit a pull request! :-D            #
+ #                                                                 #
+ #            For more info view the release notes at              #
+ #  https://www.github.com/jaredhaight/psattackbuildtool/releases  #
+ #                                                                 #
+ ###################################################################
 ";
         public static string psaStartMsg = @"
- PS>Attack downloads a copy of PS>Punch, downloads the latest 
- versions of the files in modules.json, encrypts them and then
- compiles PS>Punch with these new and unique files. Antivirus
- software (including Windows Defender) may flag the downloaded
- files as malicious.  If you run into issues with these files
- you will have to configure your AV software to allow them to
+ The PS>Attack Build Tool downloads a copy of PS>Punch, downloads
+ the latest versions of the files in modules.json, encrypts them 
+ and then compiles PS>Attack with these new and unique files. 
+ Antivirus software (including Windows Defender) may flag the 
+ downloaded files as malicious.  If you run into issues with these
+ files you will have to configure your AV software to allow them to
  be downloaded or remove them from modules.json.
 
- As part of the build process, PS>Attack relies on a full
- install of .NET 3.5. Targeting 3.5 allows PS>Punch to work
- on Windows 7 and up. If you encounter build errors, the first
- thing you should do is make sure you have the full version of
- .NET 3.5 installed. Google (or Duck Duck Go, or Bing, etc) is
- your friend.
+ The PS>Attack Build Tool relies on a full install of .NET 3.5. 
+ Targeting 3.5 allows PS>Attack to work on Windows 7 and up. If you 
+ encounter build errors, the first thing you should do is make sure 
+ you have the full version of .NET 3.5 installed. Google (or Duck 
+ Duck Go, or Bing, etc) is your friend.
 
- Press enter to start PS>Attack.
+ Press enter to start the PS>Attack Build Tool.
 
 ";
         public static string psaEndSuccess = @"
- Build complete! Your build of PS>Punch is available at: 
+ Build complete! Your build of PS>Attack is available at: 
 
  {0}
 
- You'll need the PSPunch.exe and PSPunch.exe.config files, the 
- others are extra from the build process. PSPunch.exe should be
+ You'll need the PSAttack.exe and PSAttack.exe.config files, the 
+ others are extra from the build process. PSAttack.exe should be
  run from the same folder that has the config file.
 
  Press return to open up the folder. Thanks for using PS>Attack!
@@ -181,9 +175,9 @@ namespace PSAttack
  Oh no! It looks like the build failed. You should check the build
  output above and see if there's an obvious issue. If you can't 
  resolve the problem on your own, go ahead and submit an issue  at
- https://github.com/jaredhaight/psattack/issues/ and maybe we can 
- help. Make sure to include the output from the build process (the
- gray text after '[*] Building PSPunch..' upto this error message)
+ https://github.com/jaredhaight/psattackbuildtool/issues/ and maybe 
+ we can help. Make sure to include the output from the build process 
+ (the gray text after '[*] Building PSPunch..' upto this error message)
 
  Press return to close this window.
  ";

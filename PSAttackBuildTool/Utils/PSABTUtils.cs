@@ -6,12 +6,12 @@ using System.Diagnostics;
 using System.Text;
 using System.Net;
 using System.Runtime.Serialization.Json;
-using PSAttack.Modules;
-using PSAttack.PSPunch;
+using PSAttackBuildTool.Modules;
+using PSAttackBuildTool.PSAttack;
 
-namespace PSAttack.Utils
+namespace PSAttackBuildTool.Utils
 {
-    class PSAUtils
+    class PSABTUtils
     {
         public static List<Module> GetModuleList(MemoryStream JSON)
         {
@@ -20,22 +20,22 @@ namespace PSAttack.Utils
             return moduleList;
         }
 
-        public static void BuildCsproj(List<Module> modules, Punch punch)
+        public static void BuildCsproj(List<Module> modules, Attack attack)
         {
-            punch.ClearCsproj();
+            attack.ClearCsproj();
             List<string> files = new List<string>();
             foreach (Module module in modules)
             {
-                files.Add(CryptoUtils.EncryptString(punch, module.name));
+                files.Add(CryptoUtils.EncryptString(attack, module.name));
             }
-            PSPunchCSProj csproj = new PSPunchCSProj();
+            PSAttackCSProj csproj = new PSAttackCSProj();
             csproj.Session = new Dictionary<string, object>();
             csproj.Session.Add("files", files);
             csproj.Initialize();
 
             var generatedCode = csproj.TransformText();
-            Console.WriteLine("Writing PSPunch.csproj to {0}", punch.csproj_file);
-            File.WriteAllText(punch.csproj_file, generatedCode);
+            Console.WriteLine("Writing PSAttack.csproj to {0}", attack.csproj_file);
+            File.WriteAllText(attack.csproj_file, generatedCode);
         }
 
         public static string DownloadFile(string url, string dest)
@@ -47,45 +47,45 @@ namespace PSAttack.Utils
 
         public static string UnzipFile(string zipPath)
         {
-            if (Directory.Exists(Strings.punchUnzipDir))
+            if (Directory.Exists(Strings.attackUnzipDir))
             {
-                Directory.Delete(Strings.punchUnzipDir, true);
+                Directory.Delete(Strings.attackUnzipDir, true);
             }
-            Directory.CreateDirectory(Strings.punchUnzipDir);
+            Directory.CreateDirectory(Strings.attackUnzipDir);
             using (ZipArchive archive = ZipFile.OpenRead(zipPath))
             {
-                archive.ExtractToDirectory(Strings.punchUnzipDir);
-                return Path.Combine(Strings.punchUnzipDir, archive.Entries[0].FullName);
+                archive.ExtractToDirectory(Strings.attackUnzipDir);
+                return Path.Combine(Strings.attackUnzipDir, archive.Entries[0].FullName);
             }
         }
 
-        public static string GetPSAttackDir()
+        public static string GetPSAttackBuildToolDir()
         {
-            string PSAttackDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PSAttack");
-            if (!(Directory.Exists(PSAttackDir)))
+            string PSAttackBuildDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PSAttackBuildTool");
+            if (!(Directory.Exists(PSAttackBuildDir)))
             {
-                Directory.CreateDirectory(PSAttackDir);
+                Directory.CreateDirectory(PSAttackBuildDir);
             }
-            return PSAttackDir+"\\";
+            return PSAttackBuildDir+"\\";
         }
 
-       public static Punch GetPSPunch(Uri URL)
+       public static Attack GetPSPunch(Uri URL)
         {
             WebClient wc = new System.Net.WebClient();
             // This took a while to figure out: https://developer.github.com/v3/#user-agent-required
             wc.Headers.Add("user-agent", Strings.githubUserAgent);
             string JSON = wc.DownloadString(URL);
             MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(JSON));
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Punch>));
-            List<Punch> punchList = (List<Punch>)serializer.ReadObject(stream);
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Attack>));
+            List<Attack> punchList = (List<Attack>)serializer.ReadObject(stream);
             return punchList[0];
         }
 
-        public static int BuildPunch(Punch punch)
+        public static int BuildPunch(Attack attack)
         {
             DateTime now = DateTime.Now;
             string buildDate = String.Format("{0:MMMM dd yyyy} at {0:hh:mm:ss tt}", now);
-            using (StreamWriter buildDateFile = new StreamWriter(Path.Combine(punch.resources_dir, "attackDate.txt")))
+            using (StreamWriter buildDateFile = new StreamWriter(Path.Combine(attack.resources_dir, "attackDate.txt")))
             {
                 buildDateFile.Write(buildDate);
             }
@@ -95,7 +95,7 @@ namespace PSAttack.Utils
             {
                 Process msbuild = new Process();
                 msbuild.StartInfo.FileName = msbuildPath;
-                msbuild.StartInfo.Arguments = punch.build_args;
+                msbuild.StartInfo.Arguments = attack.build_args;
                 msbuild.StartInfo.UseShellExecute = false;
                 msbuild.StartInfo.RedirectStandardOutput = true;
                 msbuild.StartInfo.RedirectStandardError = true;

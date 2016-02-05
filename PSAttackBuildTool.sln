@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSAttack", "PSAttack\PSAttack.csproj", "{8D8AC3DE-AE8E-42E8-9E50-10846E497E85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSAttackBuildTool", "PSAttackBuildTool\PSAttackBuildTool.csproj", "{8D8AC3DE-AE8E-42E8-9E50-10846E497E85}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD5A7725-5EC3-4325-989D-BFA56D5069FA}"
 	ProjectSection(SolutionItems) = preProject

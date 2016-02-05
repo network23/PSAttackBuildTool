@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-using PSAttack.PSPunch;
+using PSAttackBuildTool.PSAttack;
 
-namespace PSAttack.Utils
+namespace PSAttackBuildTool.Utils
 {
     class CryptoUtils
     {
@@ -31,7 +31,7 @@ namespace PSAttack.Utils
             return result.ToString(); ;
         }
 
-        public static string GenerateKey(Punch punch)
+        public static string GenerateKey(Attack punch)
         {
             string keyPath = Path.Combine(punch.modules_dir, "key.txt");
             if (!(File.Exists(keyPath)))
@@ -57,7 +57,7 @@ namespace PSAttack.Utils
             return sb.ToString();
         }
 
-        public static string EncryptString(Punch punch, string text)
+        public static string EncryptString(Attack punch, string text)
         {
             string key = GenerateKey(punch);
             byte[] keyBytes;
@@ -76,7 +76,7 @@ namespace PSAttack.Utils
             return Convert.ToBase64String(outputBuffer).Replace("/","_");
         }
 
-        public static void EncryptFile(Punch punch, string inputFile, string outputFile)
+        public static void EncryptFile(Attack punch, string inputFile, string outputFile)
         {
             string key = GenerateKey(punch);
             byte[] keyBytes;

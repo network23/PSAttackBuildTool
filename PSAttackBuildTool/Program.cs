@@ -4,12 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PSAttack.Modules;
-using PSAttack.Utils;
-using PSAttack.PSPunch;
+using PSAttackBuildTool.Modules;
+using PSAttackBuildTool.Utils;
+using PSAttackBuildTool.PSAttack;
 using System.Diagnostics;
 
-namespace PSAttack
+namespace PSAttackBuildTool
 {
     class Program
     {
@@ -24,8 +24,8 @@ namespace PSAttack
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Random random = new Random();
-            int psaLogoInt = random.Next(Strings.psaLogos.Count);
-            Console.WriteLine(Strings.psaLogos[psaLogoInt]);
+            int psaLogoInt = random.Next(Strings.psabtLogos.Count);
+            Console.WriteLine(Strings.psabtLogos[psaLogoInt]);
             Console.WriteLine("Version {0}\n", Strings.version);
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -34,17 +34,17 @@ namespace PSAttack
             MemoryStream memReader = new MemoryStream(Encoding.UTF8.GetBytes(modulesJson));
 
             Console.WriteLine("[*] Getting modules from local json.");
-            List<Module> modules = PSAUtils.GetModuleList(memReader);
-            string workingDir = PSAUtils.GetPSAttackDir();
+            List<Module> modules = PSABTUtils.GetModuleList(memReader);
+            string workingDir = PSABTUtils.GetPSAttackBuildToolDir();
 
-            Console.WriteLine("[*] Looking for latest release of PS>Punch");
-            Punch punch = PSAUtils.GetPSPunch(new Uri(Strings.punchURL));
+            Console.WriteLine("[*] Looking for latest release of PS>Attack");
+            Attack punch = PSABTUtils.GetPSPunch(new Uri(Strings.attackURL));
 
             Console.WriteLine("[*] Got Punch Version: {0}", punch.tag_name);
             Console.WriteLine("[*] Downloading: {0}", punch.zipball_url);
             punch.DownloadZip();
-            Console.WriteLine("[*] Unzipping to: {0}", Strings.punchUnzipDir);
-            punch.unzipped_dir = PSAUtils.UnzipFile(Strings.punchZipPath);
+            Console.WriteLine("[*] Unzipping to: {0}", Strings.attackUnzipDir);
+            punch.unzipped_dir = PSABTUtils.UnzipFile(Strings.attackZipPath);
 
             Console.WriteLine("[*] Clearing modules at: {0}", punch.modules_dir);
             punch.ClearModules();
@@ -60,7 +60,7 @@ namespace PSAttack
                 string encOutfile = punch.modules_dir + CryptoUtils.EncryptString(punch, module.name) + ".ps1.enc";
                 try
                 {
-                    PSAUtils.DownloadFile(module.url, dest);
+                    PSABTUtils.DownloadFile(module.url, dest);
                     Console.WriteLine("[*] Encrypting: {0}", dest);
                     CryptoUtils.EncryptFile(punch, dest, encOutfile);
                 }
@@ -72,17 +72,17 @@ namespace PSAttack
                     Console.ForegroundColor = origColor;
                 }
             }
-            Console.WriteLine("Generating PSPunch.csproj at {0}", punch.csproj_file);
-            PSAUtils.BuildCsproj(modules, punch);
-            Console.WriteLine("[*] Building PSPunch!");
+            Console.WriteLine("Generating PSAttack.csproj at {0}", punch.csproj_file);
+            PSABTUtils.BuildCsproj(modules, punch);
+            Console.WriteLine("[*] Building PSAttack!");
             Console.ForegroundColor = ConsoleColor.Gray;
-            int exitCode = PSAUtils.BuildPunch(punch);
+            int exitCode = PSABTUtils.BuildPunch(punch);
             if (exitCode == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(Strings.psaEndSuccess, Strings.punchBuildDir);
+                Console.WriteLine(Strings.psaEndSuccess, Strings.attackBuildDir);
                 Console.ReadLine();
-                Process.Start(Strings.punchBuildDir);
+                Process.Start(Strings.attackBuildDir);
             }
             else if (exitCode == 999)
             {

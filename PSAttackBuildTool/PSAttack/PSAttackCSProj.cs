@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace PSAttack.PSPunch
+namespace PSAttackBuildTool.PSAttack
 {
     using System;
     using System.Linq;
@@ -18,9 +18,9 @@ namespace PSAttack.PSPunch
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\jared\Documents\GitHub\PSAttack\PSAttack\PSPunch\PSPunchCSProj.tt"
+    #line 1 "C:\Users\jared\Documents\GitHub\PSAttackBuildTool\PSAttack\PSAttack\PSAttackCSProj.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public partial class PSPunchCSProj : PSPunchCSProjBase
+    public partial class PSAttackCSProj : PSAttackCSProjBase
     {
 #line hidden
         /// <summary>
@@ -36,53 +36,53 @@ namespace PSAttack.PSPunch
                     "guration)\' == \'\' \">Debug</Configuration>\r\n    <Platform Condition=\" \'$(Platform)" +
                     "\' == \'\' \">AnyCPU</Platform>\r\n    <ProjectGuid>{DA1B7904-0DDC-45A0-875F-33BBA2236" +
                     "C44}</ProjectGuid>\r\n    <OutputType>Exe</OutputType>\r\n    <AppDesignerFolder>Pro" +
-                    "perties</AppDesignerFolder>\r\n    <RootNamespace>PSPunch</RootNamespace>\r\n    <As" +
-                    "semblyName>PSPunch</AssemblyName>\r\n    <TargetFrameworkVersion>v3.5</TargetFrame" +
-                    "workVersion>\r\n    <FileAlignment>512</FileAlignment>\r\n    <AutoGenerateBindingRe" +
-                    "directs>true</AutoGenerateBindingRedirects>\r\n    <TargetFrameworkProfile>\r\n    <" +
-                    "/TargetFrameworkProfile>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Co" +
-                    "nfiguration)|$(Platform)\' == \'Debug|AnyCPU\' \">\r\n    <PlatformTarget>x64</Platfor" +
-                    "mTarget>\r\n    <DebugSymbols>true</DebugSymbols>\r\n    <DebugType>full</DebugType>" +
-                    "\r\n    <Optimize>false</Optimize>\r\n    <OutputPath>bin\\Debug\\</OutputPath>\r\n    <" +
-                    "DefineConstants>DEBUG;TRACE</DefineConstants>\r\n    <ErrorReport>prompt</ErrorRep" +
-                    "ort>\r\n    <WarningLevel>4</WarningLevel>\r\n    <Prefer32Bit>false</Prefer32Bit>\r\n" +
-                    "  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Configuration)|$(Platform)\' " +
-                    "== \'Release|AnyCPU\' \">\r\n    <PlatformTarget>AnyCPU</PlatformTarget>\r\n    <DebugT" +
-                    "ype>pdbonly</DebugType>\r\n    <Optimize>true</Optimize>\r\n    <OutputPath>bin\\Rele" +
-                    "ase\\</OutputPath>\r\n    <DefineConstants>TRACE</DefineConstants>\r\n    <ErrorRepor" +
-                    "t>prompt</ErrorReport>\r\n    <WarningLevel>4</WarningLevel>\r\n    <Prefer32Bit>fal" +
-                    "se</Prefer32Bit>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\"\'$(Configurati" +
-                    "on)|$(Platform)\' == \'Debug|x64\'\">\r\n    <DebugSymbols>true</DebugSymbols>\r\n    <O" +
-                    "utputPath>bin\\x64\\Debug\\</OutputPath>\r\n    <DefineConstants>DEBUG;TRACE</DefineC" +
-                    "onstants>\r\n    <DebugType>full</DebugType>\r\n    <PlatformTarget>x64</PlatformTar" +
-                    "get>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <CodeAnalysisRuleSet>MinimumRec" +
-                    "ommendedRules.ruleset</CodeAnalysisRuleSet>\r\n    <Prefer32Bit>false</Prefer32Bit" +
-                    ">\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\"\'$(Configuration)|$(Platform)" +
-                    "\' == \'Release|x64\'\">\r\n    <OutputPath>bin\\x64\\Release\\</OutputPath>\r\n    <Define" +
-                    "Constants>TRACE</DefineConstants>\r\n    <Optimize>true</Optimize>\r\n    <DebugType" +
-                    ">pdbonly</DebugType>\r\n    <PlatformTarget>x64</PlatformTarget>\r\n    <ErrorReport" +
-                    ">prompt</ErrorReport>\r\n    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset<" +
-                    "/CodeAnalysisRuleSet>\r\n    <Prefer32Bit>true</Prefer32Bit>\r\n  </PropertyGroup>\r\n" +
-                    "  <PropertyGroup>\r\n    <StartupObject />\r\n  </PropertyGroup>\r\n  <PropertyGroup /" +
-                    ">\r\n  <PropertyGroup />\r\n  <ItemGroup>\r\n    <Reference Include=\"System\" />\r\n    <" +
-                    "Reference Include=\"System.Core\" />\r\n    <Reference Include=\"System.Management\" /" +
-                    ">\r\n    <Reference Include=\"System.Management.Automation\" />\r\n    <Reference Incl" +
-                    "ude=\"System.Xml.Linq\" />\r\n    <Reference Include=\"System.Data.DataSetExtensions\"" +
-                    " />\r\n    <Reference Include=\"System.Data\" />\r\n    <Reference Include=\"System.Xml" +
-                    "\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Compile Include=\"PSPunchProcessing\\Tab" +
-                    "Expansion.cs\" />\r\n    <Compile Include=\"PSPunchShell\\PSColors.cs\" />\r\n    <Compi" +
-                    "le Include=\"Utils\\Display.cs\" />\r\n    <Compile Include=\"PSPunchProcessing\\PunchS" +
-                    "tate.cs\" />\r\n    <Compile Include=\"Utils\\CryptoUtils.cs\" />\r\n    <Compile Includ" +
-                    "e=\"PSPunchProcessing\\Processing.cs\" />\r\n    <Compile Include=\"Program.cs\" />\r\n  " +
-                    "  <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n    <Compile Include=\"PSPunc" +
-                    "hShell\\PSParameter.cs\" />\r\n    <Compile Include=\"PSPunchShell\\PSParamType.cs\" />" +
-                    "\r\n    <Compile Include=\"PSPunchShell\\PSPunchHost.cs\" />\r\n    <Compile Include=\"P" +
-                    "SPunchShell\\PSPunchHostRawUserInterface.cs\" />\r\n    <Compile Include=\"PSPunchShe" +
-                    "ll\\PSPunchHostUserInterface.cs\" />\r\n    <Compile Include=\"Strings.cs\" />\r\n    <C" +
-                    "ompile Include=\"Utils\\PSPUtils.cs\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <None " +
-                    "Include=\"app.config\" />\r\n\t");
+                    "perties</AppDesignerFolder>\r\n    <RootNamespace>PSAttack</RootNamespace>\r\n    <A" +
+                    "ssemblyName>PSAttack</AssemblyName>\r\n    <TargetFrameworkVersion>v3.5</TargetFra" +
+                    "meworkVersion>\r\n    <FileAlignment>512</FileAlignment>\r\n    <AutoGenerateBinding" +
+                    "Redirects>true</AutoGenerateBindingRedirects>\r\n    <TargetFrameworkProfile>\r\n   " +
+                    " </TargetFrameworkProfile>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(" +
+                    "Configuration)|$(Platform)\' == \'Debug|AnyCPU\' \">\r\n    <PlatformTarget>x64</Platf" +
+                    "ormTarget>\r\n    <DebugSymbols>true</DebugSymbols>\r\n    <DebugType>full</DebugTyp" +
+                    "e>\r\n    <Optimize>false</Optimize>\r\n    <OutputPath>bin\\Debug\\</OutputPath>\r\n   " +
+                    " <DefineConstants>DEBUG;TRACE</DefineConstants>\r\n    <ErrorReport>prompt</ErrorR" +
+                    "eport>\r\n    <WarningLevel>4</WarningLevel>\r\n    <Prefer32Bit>false</Prefer32Bit>" +
+                    "\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Configuration)|$(Platform)" +
+                    "\' == \'Release|AnyCPU\' \">\r\n    <PlatformTarget>AnyCPU</PlatformTarget>\r\n    <Debu" +
+                    "gType>pdbonly</DebugType>\r\n    <Optimize>true</Optimize>\r\n    <OutputPath>bin\\Re" +
+                    "lease\\</OutputPath>\r\n    <DefineConstants>TRACE</DefineConstants>\r\n    <ErrorRep" +
+                    "ort>prompt</ErrorReport>\r\n    <WarningLevel>4</WarningLevel>\r\n    <Prefer32Bit>f" +
+                    "alse</Prefer32Bit>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\"\'$(Configura" +
+                    "tion)|$(Platform)\' == \'Debug|x64\'\">\r\n    <DebugSymbols>true</DebugSymbols>\r\n    " +
+                    "<OutputPath>bin\\x64\\Debug\\</OutputPath>\r\n    <DefineConstants>DEBUG;TRACE</Defin" +
+                    "eConstants>\r\n    <DebugType>full</DebugType>\r\n    <PlatformTarget>x64</PlatformT" +
+                    "arget>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <CodeAnalysisRuleSet>MinimumR" +
+                    "ecommendedRules.ruleset</CodeAnalysisRuleSet>\r\n    <Prefer32Bit>false</Prefer32B" +
+                    "it>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\"\'$(Configuration)|$(Platfor" +
+                    "m)\' == \'Release|x64\'\">\r\n    <OutputPath>bin\\x64\\Release\\</OutputPath>\r\n    <Defi" +
+                    "neConstants>TRACE</DefineConstants>\r\n    <Optimize>true</Optimize>\r\n    <DebugTy" +
+                    "pe>pdbonly</DebugType>\r\n    <PlatformTarget>x64</PlatformTarget>\r\n    <ErrorRepo" +
+                    "rt>prompt</ErrorReport>\r\n    <CodeAnalysisRuleSet>MinimumRecommendedRules.rulese" +
+                    "t</CodeAnalysisRuleSet>\r\n    <Prefer32Bit>true</Prefer32Bit>\r\n  </PropertyGroup>" +
+                    "\r\n  <PropertyGroup>\r\n    <StartupObject />\r\n  </PropertyGroup>\r\n  <PropertyGroup" +
+                    " />\r\n  <PropertyGroup />\r\n  <ItemGroup>\r\n    <Reference Include=\"System\" />\r\n   " +
+                    " <Reference Include=\"System.Core\" />\r\n    <Reference Include=\"System.Management\"" +
+                    " />\r\n    <Reference Include=\"System.Management.Automation\" />\r\n    <Reference In" +
+                    "clude=\"System.Xml.Linq\" />\r\n    <Reference Include=\"System.Data.DataSetExtension" +
+                    "s\" />\r\n    <Reference Include=\"System.Data\" />\r\n    <Reference Include=\"System.X" +
+                    "ml\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Compile Include=\"PSAttackProcessing\\" +
+                    "TabExpansion.cs\" />\r\n    <Compile Include=\"PSAttackShell\\PSColors.cs\" />\r\n    <C" +
+                    "ompile Include=\"Utils\\Display.cs\" />\r\n    <Compile Include=\"PSAttackProcessing\\A" +
+                    "ttackState.cs\" />\r\n    <Compile Include=\"Utils\\CryptoUtils.cs\" />\r\n    <Compile " +
+                    "Include=\"PSAttackProcessing\\Processing.cs\" />\r\n    <Compile Include=\"Program.cs\"" +
+                    " />\r\n    <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n    <Compile Include=" +
+                    "\"PSAttackShell\\PSParameter.cs\" />\r\n    <Compile Include=\"PSAttackShell\\PSParamTy" +
+                    "pe.cs\" />\r\n    <Compile Include=\"PSAttackShell\\PSAttackHost.cs\" />\r\n    <Compile" +
+                    " Include=\"PSAttackShell\\PSAttackHostRawUserInterface.cs\" />\r\n    <Compile Includ" +
+                    "e=\"PSAttackShell\\PSAttackHostUserInterface.cs\" />\r\n    <Compile Include=\"Strings" +
+                    ".cs\" />\r\n    <Compile Include=\"Utils\\PSAUtils.cs\" />\r\n  </ItemGroup>\r\n  <ItemGro" +
+                    "up>\r\n    <None Include=\"app.config\" />\r\n\t");
             
-            #line 100 "C:\Users\jared\Documents\GitHub\PSAttack\PSAttack\PSPunch\PSPunchCSProj.tt"
+            #line 100 "C:\Users\jared\Documents\GitHub\PSAttackBuildTool\PSAttack\PSAttack\PSAttackCSProj.tt"
  foreach (string file in this.files ) {
 	WriteLine("<EmbeddedResource Include=\"Modules\\{0}.ps1.enc\"/>", file);
 	 } 
@@ -114,7 +114,7 @@ namespace PSAttack.PSPunch
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Users\jared\Documents\GitHub\PSAttack\PSAttack\PSPunch\PSPunchCSProj.tt"
+        #line 1 "C:\Users\jared\Documents\GitHub\PSAttackBuildTool\PSAttack\PSAttack\PSAttackCSProj.tt"
 
 private global::System.Collections.Generic.List<string> _filesField;
 
@@ -169,7 +169,7 @@ if ((filesValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public class PSPunchCSProjBase
+    public class PSAttackCSProjBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

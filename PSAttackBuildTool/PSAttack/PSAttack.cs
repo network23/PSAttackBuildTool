@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Runtime.Serialization;
 
-using PSAttack.Utils;
+using PSAttackBuildTool.Utils;
 
-namespace PSAttack.PSPunch
+namespace PSAttackBuildTool.PSAttack
 {
     [DataContract]
-    class Punch
+    class Attack
     {
         [DataMember]
         public string Name { get; set; }
@@ -28,7 +28,7 @@ namespace PSAttack.PSPunch
         public string modules_dir {
             get
             {
-                return Path.Combine(this.unzipped_dir, Strings.punchModulesDir);
+                return Path.Combine(this.unzipped_dir, Strings.attackModulesDir);
             }
         }
 
@@ -36,7 +36,7 @@ namespace PSAttack.PSPunch
         {
             get
             {
-                return Path.Combine(this.unzipped_dir, Strings.punchResourcesDir);
+                return Path.Combine(this.unzipped_dir, Strings.attackResourcesDir);
             }
         }
 
@@ -44,15 +44,15 @@ namespace PSAttack.PSPunch
         {
             get
             {
-                return Path.Combine(this.unzipped_dir, Strings.punchCSProjFile);
+                return Path.Combine(this.unzipped_dir, Strings.attackCSProjFile);
             }
         }
         public string build_args
         {
             get
             {
-                string solutionPath = Path.Combine(this.unzipped_dir, "PSPunch.sln");
-                return solutionPath + " /p:Configuration=Debug /p:OutputPath=" + Strings.punchBuildDir;
+                string solutionPath = Path.Combine(this.unzipped_dir, "PSAttack.sln");
+                return solutionPath + " /p:Configuration=Debug /p:OutputPath=" + Strings.attackBuildDir;
             }
         }
 
@@ -60,7 +60,7 @@ namespace PSAttack.PSPunch
         {
             WebClient wc = new WebClient();
             wc.Headers.Add("user-agent", Strings.githubUserAgent);
-            wc.DownloadFile(this.zipball_url, Strings.punchZipPath);
+            wc.DownloadFile(this.zipball_url, Strings.attackZipPath);
         }
 
         public void ClearModules()
