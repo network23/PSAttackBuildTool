@@ -10,7 +10,7 @@ namespace PSAttackBuildTool
 {
     class Strings
     {
-        public static string version = "0.2.2-beta";
+        public static string version = "1.0";
         public static string githubUserAgent = "PSAttackBuildTool";
         public static string attackURL = "https://api.github.com/repos/jaredhaight/psattack/releases";
         public static string attackUnzipDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackSrc");
@@ -117,22 +117,8 @@ namespace PSAttackBuildTool
                                                [build tool]
 "
         };
-        public static string psaWarning = @"
- ###################################################################
- #                                                                 #
- #   PLEASE NOTE: This is a beta release of the PS>Attack Build    # 
- #    Tool. Things might be buggy. If you find something that's    # 
- #                broken please submit an issue at                 #
- #    https://github.com/jaredhaight/psattackbuildtool/issues      #
- #           or even better, submit a pull request! :-D            #
- #                                                                 #
- #            For more info view the release notes at              #
- #  https://www.github.com/jaredhaight/psattackbuildtool/releases  #
- #                                                                 #
- ###################################################################
-";
         public static string psaStartMsg = @"
- The PS>Attack Build Tool downloads a copy of PS>Punch, downloads
+ The PS>Attack Build Tool downloads a copy of PS>Attack, downloads
  the latest versions of the files in modules.json, encrypts them 
  and then compiles PS>Attack with these new and unique files. 
  Antivirus software (including Windows Defender) may flag the 
@@ -177,7 +163,7 @@ namespace PSAttackBuildTool
  resolve the problem on your own, go ahead and submit an issue  at
  https://github.com/jaredhaight/psattackbuildtool/issues/ and maybe 
  we can help. Make sure to include the output from the build process 
- (the gray text after '[*] Building PSPunch..' upto this error message)
+ (the gray text after '[*] Building PS>Attack..' upto this error message)
 
  Press return to close this window.
  ";

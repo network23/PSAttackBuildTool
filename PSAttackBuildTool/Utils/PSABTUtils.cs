@@ -69,7 +69,7 @@ namespace PSAttackBuildTool.Utils
             return PSAttackBuildDir+"\\";
         }
 
-       public static Attack GetPSPunch(Uri URL)
+       public static Attack GetPSAttack(Uri URL)
         {
             WebClient wc = new System.Net.WebClient();
             // This took a while to figure out: https://developer.github.com/v3/#user-agent-required
@@ -77,11 +77,11 @@ namespace PSAttackBuildTool.Utils
             string JSON = wc.DownloadString(URL);
             MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(JSON));
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Attack>));
-            List<Attack> punchList = (List<Attack>)serializer.ReadObject(stream);
-            return punchList[0];
+            List<Attack> psattackReleaseList = (List<Attack>)serializer.ReadObject(stream);
+            return psattackReleaseList[0];
         }
 
-        public static int BuildPunch(Attack attack)
+        public static int BuiltPSAttack(Attack attack)
         {
             DateTime now = DateTime.Now;
             string buildDate = String.Format("{0:MMMM dd yyyy} at {0:hh:mm:ss tt}", now);

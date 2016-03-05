@@ -31,9 +31,9 @@ namespace PSAttackBuildTool.Utils
             return result.ToString(); ;
         }
 
-        public static string GenerateKey(Attack punch)
+        public static string GenerateKey(Attack attack)
         {
-            string keyPath = Path.Combine(punch.modules_dir, "key.txt");
+            string keyPath = Path.Combine(attack.modules_dir, "key.txt");
             if (!(File.Exists(keyPath)))
             {
                 string key = RandomString(64);
@@ -57,9 +57,9 @@ namespace PSAttackBuildTool.Utils
             return sb.ToString();
         }
 
-        public static string EncryptString(Attack punch, string text)
+        public static string EncryptString(Attack attack, string text)
         {
-            string key = GenerateKey(punch);
+            string key = GenerateKey(attack);
             byte[] keyBytes;
             keyBytes = Encoding.Unicode.GetBytes(key);
 
@@ -76,9 +76,9 @@ namespace PSAttackBuildTool.Utils
             return Convert.ToBase64String(outputBuffer).Replace("/","_");
         }
 
-        public static void EncryptFile(Attack punch, string inputFile, string outputFile)
+        public static void EncryptFile(Attack attack, string inputFile, string outputFile)
         {
-            string key = GenerateKey(punch);
+            string key = GenerateKey(attack);
             byte[] keyBytes;
             keyBytes = Encoding.Unicode.GetBytes(key);
 
