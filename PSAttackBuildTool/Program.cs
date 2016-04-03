@@ -82,7 +82,7 @@ namespace PSAttackBuildTool
             // BUILD PS>ATTACK
             Console.WriteLine("[*] Building PS>Attack!");
             Console.ForegroundColor = ConsoleColor.Gray;
-            int exitCode = PSABTUtils.BuiltPSAttack(attack);
+            int exitCode = PSABTUtils.BuildPSAttack(attack);
             if (exitCode == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
