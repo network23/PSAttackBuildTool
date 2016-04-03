@@ -19,7 +19,7 @@ namespace PSAttackBuildTool
         public static string attackModulesDir = "PSAttack\\Modules\\";
         public static string attackResourcesDir = "PSAttack\\Resources\\";
         public static string attackCSProjFile = "PSAttack\\PSAttack.csproj";
-        public static string attackBuildDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackBuild");
+        public static string attackBuildDir = "\"" + Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackBuild") + "\"";
         public static List<string> psabtLogos = new List<string>()
         {
 @"

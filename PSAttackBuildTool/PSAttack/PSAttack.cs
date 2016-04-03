@@ -51,7 +51,7 @@ namespace PSAttackBuildTool.PSAttack
         {
             get
             {
-                string solutionPath = Path.Combine(this.unzipped_dir, "PSAttack.sln");
+                string solutionPath = "\"" + Path.Combine(this.unzipped_dir, "PSAttack.sln") + "\"";
                 return solutionPath + " /p:Configuration=Debug /p:OutputPath=" + Strings.attackBuildDir;
             }
         }
