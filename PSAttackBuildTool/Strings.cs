@@ -10,7 +10,7 @@ namespace PSAttackBuildTool
 {
     class Strings
     {
-        public static string version = "1.0";
+        public static string version = "1.0.1";
         public static string githubUserAgent = "PSAttackBuildTool";
         public static string attackURL = "https://api.github.com/repos/jaredhaight/psattack/releases";
         public static string attackUnzipDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackSrc");
