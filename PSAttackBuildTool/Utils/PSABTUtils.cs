@@ -81,7 +81,7 @@ namespace PSAttackBuildTool.Utils
             return psattackReleaseList[0];
         }
 
-        public static int BuiltPSAttack(Attack attack)
+        public static int BuildPSAttack(Attack attack)
         {
             DateTime now = DateTime.Now;
             string buildDate = String.Format("{0:MMMM dd yyyy} at {0:hh:mm:ss tt}", now);
