@@ -78,5 +78,17 @@
 	{
 	  "name": "Get-Attack",
 	  "url":"https://raw.githubusercontent.com/jaredhaight/PSAttack/master/PSAttack/Get-Attack/get-attack.ps1"
+	},
+	{
+	 "name":"Invoke-MetasploitPayload",
+	 "url":"https://raw.githubusercontent.com/jaredhaight/Invoke-MetasploitPayload/master/Invoke-MetasploitPayload.ps1"
+	},
+	{
+	 "name":"Tater",
+	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Tater/master/Tater.ps1"
+	},
+	{
+	 "name":"Invoke-MS16-032",
+	 "url":"https://raw.githubusercontent.com/FuzzySecurity/PowerShell-Suite/master/Invoke-MS16-032.ps1"
 	}
 ]
