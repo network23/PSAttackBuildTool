@@ -15,7 +15,7 @@ PS>Attack is a self contained custom PowerShell console that comes with a lot of
 You can find more information about PS>Attack at its [github page](https://github.com/jaredhaight/psattack)
 
 #### Using the Build Tool
-You can download precompiled binaries of the build tool from the [releases tab](https://github.com/jaredhaight/PSAttackBuildTool/releases) or if you'd like, clone the repo and compile it from source. To compile it, you can use the Community Edition of [Visual Studio](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+You can download precompiled binaries of the build tool from the [releases tab](https://github.com/jaredhaight/PSAttackBuildTool/releases) or if you'd like, clone the repo and compile it from source. To compile it, you can use the Community Edition of [Visual Studio](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx).
 
 #### Contact
 If you have any questions or suggestions for PS>Attack or its Build Tool, feel free to submit an issue or reachout on [twitter](https://www.twitter.com/jaredhaight) or via email: jaredhaight `at` prontonmail.com
