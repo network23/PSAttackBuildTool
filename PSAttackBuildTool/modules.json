@@ -90,5 +90,9 @@
 	{
 	 "name":"Invoke-MS16-032",
 	 "url":"https://raw.githubusercontent.com/FuzzySecurity/PowerShell-Suite/master/Invoke-MS16-032.ps1"
+	},
+	{
+	 "name":"Invoke-Mimikittenz",
+	 "url":"https://raw.githubusercontent.com/putterpanda/mimikittenz/master/Invoke-mimikittenz.ps1"
 	}
 ]
