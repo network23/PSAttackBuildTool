@@ -10,7 +10,7 @@ namespace PSAttackBuildTool
 {
     class Strings
     {
-        public static string version = "1.0.2";
+        public static string version = "1.1";
         public static string githubUserAgent = "PSAttackBuildTool";
         public static string attackURL = "https://api.github.com/repos/jaredhaight/psattack/releases";
         public static string attackUnzipDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackSrc");
@@ -130,11 +130,17 @@ namespace PSAttackBuildTool
  Targeting 3.5 allows PS>Attack to work on Windows 7 and up. If you 
  encounter build errors, the first thing you should do is make sure 
  you have the full version of .NET 3.5 installed. Google (or Duck 
- Duck Go, or Bing, etc) is your friend.
+ Duck Go, or Bing, etc) is your friend.";
 
- Press enter to start the PS>Attack Build Tool.
+        public static string psaWarningMsg = @"
+ WARNING: This build tool downloads various PowerShell modules from 
+ sources on the internet with the goal of executing them within 
+ PS>Attack. For the most part, these files come from developers with 
+ established reputations who probably aren't jerks. As always though,
+ there is risk involved in downloading code blindly from the internet
+ and running it. You can customize the modules.json file to decide
+ what code is downloaded and from where.";
 
-";
         public static string psaEndSuccess = @"
  Build complete! Your build of PS>Attack is available at: 
 

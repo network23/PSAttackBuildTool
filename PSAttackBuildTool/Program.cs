@@ -18,6 +18,10 @@ namespace PSAttackBuildTool
             // PRINT START MESSAGE
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine(Strings.psaStartMsg);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(Strings.psaWarningMsg);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\n Press any key to start the build process..");
             Console.ReadLine();
             Console.Clear();
 
