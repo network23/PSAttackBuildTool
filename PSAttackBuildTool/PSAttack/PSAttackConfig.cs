@@ -9,18 +9,18 @@
 // ------------------------------------------------------------------------------
 namespace PSAttackBuildTool.PSAttack
 {
-    using System;
     using System.Linq;
     using System.Text;
     using System.Collections.Generic;
+    using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\jared\repos\PSAttackBuildTool\PSAttackBuildTool\PSAttack\PSAttackCSProj.tt"
+    #line 1 "C:\Users\jared\repos\PSAttackBuildTool\PSAttackBuildTool\PSAttack\PSAttackConfig.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public partial class PSAttackCSProj : PSAttackCSProjBase
+    public partial class PSAttackConfig : PSAttackConfigBase
     {
 #line hidden
         /// <summary>
@@ -28,114 +28,63 @@ namespace PSAttackBuildTool.PSAttack
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Project ToolsVersion=\"14.0\" DefaultTarge" +
-                    "ts=\"Build\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">\r\n  <Impo" +
-                    "rt Project=\"$(MSBuildExtensionsPath)\\$(MSBuildToolsVersion)\\Microsoft.Common.pro" +
-                    "ps\" Condition=\"Exists(\'$(MSBuildExtensionsPath)\\$(MSBuildToolsVersion)\\Microsoft" +
-                    ".Common.props\')\" />\r\n  <PropertyGroup>\r\n    <Configuration Condition=\" \'$(Config" +
-                    "uration)\' == \'\' \">Debug</Configuration>\r\n    <Platform Condition=\" \'$(Platform)\'" +
-                    " == \'\' \">AnyCPU</Platform>\r\n    <ProjectGuid>{DA1B7904-0DDC-45A0-875F-33BBA2236C" +
-                    "44}</ProjectGuid>\r\n    <OutputType>Exe</OutputType>\r\n    <AppDesignerFolder>Prop" +
-                    "erties</AppDesignerFolder>\r\n    <RootNamespace>PSAttack</RootNamespace>\r\n    <As" +
-                    "semblyName>PSAttack</AssemblyName>\r\n    <TargetFrameworkVersion>v3.5</TargetFram" +
-                    "eworkVersion>\r\n    <FileAlignment>512</FileAlignment>\r\n    <AutoGenerateBindingR" +
-                    "edirects>true</AutoGenerateBindingRedirects>\r\n    <TargetFrameworkProfile>\r\n    " +
-                    "</TargetFrameworkProfile>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(C" +
-                    "onfiguration)|$(Platform)\' == \'Debug|AnyCPU\' \">\r\n    <PlatformTarget>x64</Platfo" +
-                    "rmTarget>\r\n    <DebugSymbols>true</DebugSymbols>\r\n    <DebugType>full</DebugType" +
-                    ">\r\n    <Optimize>false</Optimize>\r\n    <OutputPath>bin\\Debug\\x86\\</OutputPath>\r\n" +
-                    "    <DefineConstants>DEBUG;TRACE</DefineConstants>\r\n    <ErrorReport>prompt</Err" +
-                    "orReport>\r\n    <WarningLevel>4</WarningLevel>\r\n    <Prefer32Bit>false</Prefer32B" +
-                    "it>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Configuration)|$(Platfo" +
-                    "rm)\' == \'Release|AnyCPU\' \">\r\n    <PlatformTarget>AnyCPU</PlatformTarget>\r\n    <D" +
-                    "ebugType>none</DebugType>\r\n    <Optimize>true</Optimize>\r\n    <OutputPath>bin\\Re" +
-                    "lease\\x86\\</OutputPath>\r\n    <DefineConstants>TRACE</DefineConstants>\r\n    <Erro" +
-                    "rReport>prompt</ErrorReport>\r\n    <WarningLevel>4</WarningLevel>\r\n    <Prefer32B" +
-                    "it>false</Prefer32Bit>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\"\'$(Confi" +
-                    "guration)|$(Platform)\' == \'Debug|x64\'\">\r\n    <DebugSymbols>true</DebugSymbols>\r\n" +
-                    "    <OutputPath>bin\\Debug\\x64\\</OutputPath>\r\n    <DefineConstants>DEBUG;TRACE</D" +
-                    "efineConstants>\r\n    <DebugType>full</DebugType>\r\n    <PlatformTarget>x64</Platf" +
-                    "ormTarget>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <CodeAnalysisRuleSet>Mini" +
-                    "mumRecommendedRules.ruleset</CodeAnalysisRuleSet>\r\n    <Prefer32Bit>false</Prefe" +
-                    "r32Bit>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\"\'$(Configuration)|$(Pla" +
-                    "tform)\' == \'Release|x64\'\">\r\n    <OutputPath>bin\\Release\\x64\\</OutputPath>\r\n    <" +
-                    "DefineConstants>TRACE</DefineConstants>\r\n    <Optimize>true</Optimize>\r\n    <Deb" +
-                    "ugType>none</DebugType>\r\n    <PlatformTarget>x64</PlatformTarget>\r\n    <ErrorRep" +
-                    "ort>prompt</ErrorReport>\r\n    <CodeAnalysisRuleSet>MinimumRecommendedRules.rules" +
-                    "et</CodeAnalysisRuleSet>\r\n    <Prefer32Bit>true</Prefer32Bit>\r\n  </PropertyGroup" +
-                    ">\r\n  <PropertyGroup>\r\n    <StartupObject />\r\n  </PropertyGroup>\r\n  <PropertyGrou" +
-                    "p />\r\n  <PropertyGroup />\r\n  <PropertyGroup>\r\n    <ApplicationManifest>app.manif" +
-                    "est</ApplicationManifest>\r\n  </PropertyGroup>\r\n  <ItemGroup>\r\n    <Reference Inc" +
-                    "lude=\"System\" />\r\n    <Reference Include=\"System.Core\" />\r\n    <Reference Includ" +
-                    "e=\"System.Management\" />\r\n    <Reference Include=\"System.Management.Automation\" " +
-                    "/>\r\n    <Reference Include=\"System.Xml.Linq\" />\r\n    <Reference Include=\"System." +
-                    "Data.DataSetExtensions\" />\r\n    <Reference Include=\"System.Data\" />\r\n    <Refere" +
-                    "nce Include=\"System.Xml\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Compile Include" +
-                    "=\"Properties\\Settings.Designer.cs\">\r\n      <AutoGen>True</AutoGen>\r\n      <Desig" +
-                    "nTimeSharedInput>True</DesignTimeSharedInput>\r\n      <DependentUpon>Settings.set" +
-                    "tings</DependentUpon>\r\n    </Compile>\r\n    <Compile Include=\"PSAttackProcessing\\" +
-                    "TabExpansion.cs\" />\r\n    <Compile Include=\"PSAttackShell\\PSColors.cs\" />\r\n    <C" +
-                    "ompile Include=\"Utils\\Display.cs\" />\r\n    <Compile Include=\"PSAttackProcessing\\A" +
-                    "ttackState.cs\" />\r\n    <Compile Include=\"Utils\\CryptoUtils.cs\" />\r\n    <Compile " +
-                    "Include=\"PSAttackProcessing\\Processing.cs\" />\r\n    <Compile Include=\"Program.cs\"" +
-                    " />\r\n    <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n    <Compile Include=" +
-                    "\"PSAttackShell\\PSParameter.cs\" />\r\n    <Compile Include=\"PSAttackShell\\PSParamTy" +
-                    "pe.cs\" />\r\n    <Compile Include=\"PSAttackShell\\PSAttackHost.cs\" />\r\n    <Compile" +
-                    " Include=\"PSAttackShell\\PSAttackHostRawUserInterface.cs\" />\r\n    <Compile Includ" +
-                    "e=\"PSAttackShell\\PSAttackHostUserInterface.cs\" />\r\n    <Compile Include=\"Strings" +
-                    ".cs\" />\r\n    <Compile Include=\"Utils\\PSAUtils.cs\" />\r\n  </ItemGroup>\r\n  <ItemGro" +
-                    "up>\r\n    <None Include=\"app.config\" />\r\n\t");
+            this.Write(@"<?xml version=""1.0"" encoding=""utf-8""?>
+<configuration>
+  <configSections>
+    <sectionGroup name=""applicationSettings"" type=""System.Configuration.ApplicationSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"" >
+      <section name=""PSAttack.Properties.Settings"" type=""System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"" requirePermission=""false"" />
+    </sectionGroup>
+  </configSections>
+  <startup>
+    <supportedRuntime version=""v4.0"" sku="".NETFramework,Version=v4.5"" />
+    <supportedRuntime version=""v4.0"" sku="".NETFramework,Version=v4.0.3,Profile=Client"" />
+    <supportedRuntime version=""v4.0"" sku="".NETFramework,Version=v4.0.2"" />
+    <supportedRuntime version=""v4.0"" sku="".NETFramework,Version=v4.0.2,Profile=Client"" />
+    <supportedRuntime version=""v4.0"" sku="".NETFramework,Version=v4.0.1"" />
+    <supportedRuntime version=""v4.0"" sku="".NETFramework,Version=v4.0.1,Profile=Client"" />
+    <supportedRuntime version=""v4.0"" sku="".NETFramework,Version=v4.0"" />
+    <supportedRuntime version=""v4.0"" sku="".NETFramework,Version=v4.0,Profile=Client"" />
+    <supportedRuntime version=""v2.0.50727""/>
+  </startup>
+  <applicationSettings>
+    <PSAttack.Properties.Settings>
+      <setting name=""encryptionKey"" serializeAs=""String"">
+	  	");
             
-            #line 109 "C:\Users\jared\repos\PSAttackBuildTool\PSAttackBuildTool\PSAttack\PSAttackCSProj.tt"
- foreach (string file in this.files ) {
-	WriteLine("<EmbeddedResource Include=\"Modules\\{0}\"/>", file);
-	 } 
-            
-            #line default
-            #line hidden
-            this.Write("\t ");
-            
-            #line 112 "C:\Users\jared\repos\PSAttackBuildTool\PSAttackBuildTool\PSAttack\PSAttackCSProj.tt"
+            #line 31 "C:\Users\jared\repos\PSAttackBuildTool\PSAttackBuildTool\PSAttack\PSAttackConfig.tt"
 
-	 WriteLine("<EmbeddedResource Include=\"Resources\\{0}\"/>", this.keyStoreFileName);
-	 
+		WriteLine("<value>{0}</value>", this.encryptionKey);
+		
             
             #line default
             #line hidden
-            this.Write(@"  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include=""Resources\attackDate.txt"" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include=""Resources\BuildDate.txt"" />
-  </ItemGroup>
-  <Import Project=""$(MSBuildToolsPath)\Microsoft.CSharp.targets"" />
-  <PropertyGroup>
-    <PreBuildEvent>powershell -command ""write-host (get-date -Format D) at (get-date -Format T)"" &gt; ""$(ProjectDir)\Resources\BuildDate.txt""</PreBuildEvent>
-  </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name=""BeforeBuild"">
-  </Target>
-  <Target Name=""AfterBuild"">
-  </Target>
-  -->
-</Project>");
+            this.Write("      </setting>\r\n      <setting name=\"valueStore\" serializeAs=\"String\">\r\n       " +
+                    " ");
+            
+            #line 36 "C:\Users\jared\repos\PSAttackBuildTool\PSAttackBuildTool\PSAttack\PSAttackConfig.tt"
+
+		WriteLine("<value>{0}</value>", this.keyStoreFileName);
+		
+            
+            #line default
+            #line hidden
+            this.Write("      </setting>\r\n    </PSAttack.Properties.Settings>\r\n  </applicationSettings>\r\n" +
+                    "</configuration>");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Users\jared\repos\PSAttackBuildTool\PSAttackBuildTool\PSAttack\PSAttackCSProj.tt"
+        #line 1 "C:\Users\jared\repos\PSAttackBuildTool\PSAttackBuildTool\PSAttack\PSAttackConfig.tt"
 
-private global::System.Collections.Generic.List<string> _filesField;
+private string _encryptionKeyField;
 
 /// <summary>
-/// Access the files parameter of the template.
+/// Access the encryptionKey parameter of the template.
 /// </summary>
-private global::System.Collections.Generic.List<string> files
+private string encryptionKey
 {
     get
     {
-        return this._filesField;
+        return this._encryptionKeyField;
     }
 }
 
@@ -152,6 +101,19 @@ private string keyStoreFileName
     }
 }
 
+private string _encFileExtensionField;
+
+/// <summary>
+/// Access the encFileExtension parameter of the template.
+/// </summary>
+private string encFileExtension
+{
+    get
+    {
+        return this._encFileExtensionField;
+    }
+}
+
 
 /// <summary>
 /// Initialize the template
@@ -160,18 +122,18 @@ public virtual void Initialize()
 {
     if ((this.Errors.HasErrors == false))
     {
-bool filesValueAcquired = false;
-if (this.Session.ContainsKey("files"))
+bool encryptionKeyValueAcquired = false;
+if (this.Session.ContainsKey("encryptionKey"))
 {
-    this._filesField = ((global::System.Collections.Generic.List<string>)(this.Session["files"]));
-    filesValueAcquired = true;
+    this._encryptionKeyField = ((string)(this.Session["encryptionKey"]));
+    encryptionKeyValueAcquired = true;
 }
-if ((filesValueAcquired == false))
+if ((encryptionKeyValueAcquired == false))
 {
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("files");
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("encryptionKey");
     if ((data != null))
     {
-        this._filesField = ((global::System.Collections.Generic.List<string>)(data));
+        this._encryptionKeyField = ((string)(data));
     }
 }
 bool keyStoreFileNameValueAcquired = false;
@@ -186,6 +148,20 @@ if ((keyStoreFileNameValueAcquired == false))
     if ((data != null))
     {
         this._keyStoreFileNameField = ((string)(data));
+    }
+}
+bool encFileExtensionValueAcquired = false;
+if (this.Session.ContainsKey("encFileExtension"))
+{
+    this._encFileExtensionField = ((string)(this.Session["encFileExtension"]));
+    encFileExtensionValueAcquired = true;
+}
+if ((encFileExtensionValueAcquired == false))
+{
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("encFileExtension");
+    if ((data != null))
+    {
+        this._encFileExtensionField = ((string)(data));
     }
 }
 
@@ -206,7 +182,7 @@ if ((keyStoreFileNameValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public class PSAttackCSProjBase
+    public class PSAttackConfigBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

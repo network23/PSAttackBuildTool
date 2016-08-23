@@ -25,7 +25,8 @@ namespace PSAttackBuildTool.PSAttack
 
         public string unzipped_dir { get; set; }
 
-        public string modules_dir {
+        public string modules_dir
+        {
             get
             {
                 return Path.Combine(this.unzipped_dir, Strings.attackModulesDir);
@@ -45,6 +46,21 @@ namespace PSAttackBuildTool.PSAttack
             get
             {
                 return Path.Combine(this.unzipped_dir, Strings.attackCSProjFile);
+            }
+        }
+
+        public string config_file
+        {
+            get
+            {
+                return Path.Combine(this.unzipped_dir, Strings.attackConfigFile);
+            }
+        }
+        public string settings_designer_file
+        {
+            get
+            {
+                return Path.Combine(this.unzipped_dir, Strings.attackSettingsDesignerFile);
             }
         }
         public string build_args
@@ -88,6 +104,18 @@ namespace PSAttackBuildTool.PSAttack
             catch (Exception e)
             {
                 Console.WriteLine("Could not clear out CSProj file at {0}.\n Error message {1}", this.csproj_file, e.Message);
+            }
+        }
+
+        public void ClearConfigFile()
+        {
+            try
+            {
+                File.Delete(this.config_file);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not clear out Config file at {0}.\n Error message {1}", this.csproj_file, e.Message);
             }
         }
     }

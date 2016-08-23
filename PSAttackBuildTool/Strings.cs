@@ -16,9 +16,12 @@ namespace PSAttackBuildTool
         public static string attackUnzipDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackSrc");
         public static string attackZipPath = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttack.zip");
         public static string moduleSrcDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ModuleSrc");
+        public static string obfuscatedScriptsDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ObfuscatedScripts");
         public static string attackModulesDir = "PSAttack\\Modules\\";
         public static string attackResourcesDir = "PSAttack\\Resources\\";
         public static string attackCSProjFile = "PSAttack\\PSAttack.csproj";
+        public static string attackConfigFile = "PSAttack\\app.config";
+        public static string attackSettingsDesignerFile = "PSAttack\\Properties\\Settings.Designer.cs";
         public static string attackBuildDir = "\"" + Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackBuild") + "\"";
         public static List<string> psabtLogos = new List<string>()
         {

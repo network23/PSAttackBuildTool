@@ -20,22 +20,35 @@ namespace PSAttackBuildTool.Utils
             return moduleList;
         }
 
-        public static void BuildCsproj(List<Module> modules, Attack attack)
+        public static void BuildCsproj(List<Module> modules, Attack attack, GeneratedStrings generatedStrings)
         {
             attack.ClearCsproj();
             List<string> files = new List<string>();
             foreach (Module module in modules)
             {
-                files.Add(CryptoUtils.EncryptString(attack, module.name));
+                files.Add(CryptoUtils.EncryptString(attack, module.name, generatedStrings));
             }
             PSAttackCSProj csproj = new PSAttackCSProj();
             csproj.Session = new Dictionary<string, object>();
             csproj.Session.Add("files", files);
+            csproj.Session.Add("keyStoreFileName", generatedStrings.Store["keyStoreFileName"]);
             csproj.Initialize();
 
             var generatedCode = csproj.TransformText();
-            Console.WriteLine("Writing PSAttack.csproj to {0}", attack.csproj_file);
             File.WriteAllText(attack.csproj_file, generatedCode);
+        }
+
+        public static void BuildConfigFile(Attack attack, GeneratedStrings generatedStrings)
+        {
+            attack.ClearConfigFile();
+            PSAttackConfig psaConfig = new PSAttackConfig();
+            psaConfig.Session = new Dictionary<string, object>();
+            psaConfig.Session.Add("encryptionKey", generatedStrings.Store["encryptionKey"]);
+            psaConfig.Session.Add("keyStoreFileName", generatedStrings.Store["keyStoreFileName"]);
+            psaConfig.Initialize();
+
+            var generatedCode = psaConfig.TransformText();
+            File.WriteAllText(attack.config_file, generatedCode);
         }
 
         public static string DownloadFile(string url, string dest)
@@ -113,6 +126,27 @@ namespace PSAttackBuildTool.Utils
                 return exitCode;
             }
             return 999;
+        }
+
+        public static string RandomString(int length, Random rand)
+        {
+            string allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            char[] generatedChars = new char[length];
+            for (int i = 0; i < length; i++)
+            {
+                generatedChars[i] = allowedChars[rand.Next(0, allowedChars.Length)];
+            }
+            return new string(generatedChars);
+        }
+    }
+
+    class GeneratedStrings
+    {
+        public Dictionary<string,string> Store { get; set; }
+
+        public GeneratedStrings()
+        {
+            this.Store = new Dictionary<string, string>();
         }
     }
 }

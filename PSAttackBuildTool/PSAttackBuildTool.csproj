@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modules\Module.cs" />
+    <Compile Include="ObfuscationEngine\ObfuscationEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSAttack\PSAttack.cs" />
@@ -59,8 +60,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PSAttackCSProj.tt</DependentUpon>
     </Compile>
+    <Compile Include="PSAttack\PSAttackConfig.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSAttackConfig.tt</DependentUpon>
+    </Compile>
     <Compile Include="Strings.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />
+    <Compile Include="Utils\Display.cs" />
     <Compile Include="Utils\PSABTUtils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +83,10 @@
     <Content Include="PSAttack\PSAttackCSProj.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PSAttackCSProj.cs</LastGenOutput>
+    </Content>
+    <Content Include="PSAttack\PSAttackConfig.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PSAttackConfig.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
