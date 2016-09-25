@@ -73,7 +73,6 @@ namespace PSAttackBuildTool.PSAttack
         {
             WebClient wc = new WebClient();
             wc.Headers.Add("user-agent", Strings.githubUserAgent);
-            this.zipball_url = "https://github.com/jaredhaight/PSAttack/archive/dev.zip";
             wc.DownloadFile(this.zipball_url, Strings.attackZipPath);
         }
 
