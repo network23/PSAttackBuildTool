@@ -1,98 +1,102 @@
 ﻿[
-    {
-      "name": "Invoke-Mimikatz",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1"
-    },
-    {
-      "name": "Invoke-GPPPassword",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1"
-    },
-    {
-      "name": "Invoke-Ninjacopy",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1"
-    },
-    {
-      "name": "VolumeShadowCopyTools",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/VolumeShadowCopyTools.ps1"
-    },
-    {
-      "name": "Invoke-PsUACme",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Escalation/Invoke-PsUACme.ps1"
-    },   
+  {
+    "name": "PowerSploit - Invoke-Mimikatz",
+    "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1"
+  },
+  {
+    "name": "PowerSploit - Invoke-GPPPassword",
+    "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Get-GPPPassword.ps1"
+  },
+  {
+    "name": "PowerSploit - Invoke-Ninjacopy",
+    "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-NinjaCopy.ps1"
+  },
+  {
+    "name": "PowerSploit - VolumeShadowCopyTools",
+    "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/VolumeShadowCopyTools.ps1"
+  },
+  {
+    "name": "Nishang - Invoke-PsUACme",
+    "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Escalation/Invoke-PsUACme.ps1"
+  },   
+  {
+    "name": "PowerTools - PowerUp",
+    "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerUp/PowerUp.ps1"
+  },
+  {
+    "name": "PowerTools - PowerView",
+    "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1"
+  },
+  {
+    "name": "PowerSploit - Invoke-Shellcode",
+    "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-Shellcode.ps1"
+  },
+  {
+    "name": "PowerSploit - Invoke-WMICommand",
+    "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-WmiCommand.ps1"
+  },
+  {
+    "name": "Nishang - Add-Exfiltration",
+    "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Add-Exfiltration.ps1"
+  },
+  {
+    "name": "Nishang - Do-Exfiltration",
+    "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Do-Exfiltration.ps1"
+  },
+  {
+    "name": "Nishang - Gupt-Backdoor",
+    "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/Gupt-Backdoor.ps1"
+  },
+  {
+    "name": "Nishang - dns_txt_pwnage",
+    "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/DNS_TXT_Pwnage.ps1"
+  },
+  {
+    "name": "Nishang - Out-Dnstxt",
+    "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Out-DnsTxt.ps1"
+  },
+  {
+    "name": "Nishang - Get-Information",
+    "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-Information.ps1"
+  },
+  {
+    "name": "Nishang - Get-Wlan-Keys",
+    "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-WLAN-Keys.ps1"
+  },
+  {
+    "name": "Besimorhino - Powercat",
+    "url": "https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1"
+  },
+  {
+    "name": "Kevin Robertson - Inveigh-Relay",
+    "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh-Relay.ps1"
+  },
+  {
+    "name": "Kevin Robertson - Inveigh",
+    "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh.ps1"
+  },
 	{
-      "name": "PowerUp",
-      "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerUp/PowerUp.ps1"
-    },
-    {
-      "name": "PowerView",
-      "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1"
-    },
-    {
-      "name": "Invoke-Shellcode",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-Shellcode.ps1"
-    },
-    {
-      "name": "Invoke-WMICommand",
-      "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-WmiCommand.ps1"
-    },
-    {
-      "name": "Add-Exfiltration",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Add-Exfiltration.ps1"
-    },
-    {
-      "name": "Do-Exfiltration",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Do-Exfiltration.ps1"
-    },
-    {
-      "name": "Gupt-Backdoor",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/Gupt-Backdoor.ps1"
-    },
-    {
-      "name": "dns_txt_pwnage",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Backdoors/DNS_TXT_Pwnage.ps1"
-    },
-    {
-      "name": "Out-Dnstxt",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Utility/Out-DnsTxt.ps1"
-    },
-    {
-      "name": "Get-Information",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-Information.ps1"
-    },
-    {
-      "name": "Get-Wlan-Keys",
-      "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-WLAN-Keys.ps1"
-    },
-    {
-      "name": "Powercat",
-      "url": "https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1"
-    },
-    {
-      "name": "Inveigh-Relay",
-      "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh-Relay.ps1"
-    },
-    {
-      "name": "Inveigh",
-      "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh.ps1"
-    },
-	{
-	  "name": "Get-Attack",
-	  "url":"https://raw.githubusercontent.com/jaredhaight/PSAttack/master/PSAttack/Get-Attack/get-attack.ps1"
+	  "name": "PSAttack - Get-Attack",
+	  "url":"https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Documentation/Get-Attack.ps1"
 	},
 	{
-	 "name":"Invoke-MetasploitPayload",
-	 "url":"https://raw.githubusercontent.com/jaredhaight/Invoke-MetasploitPayload/master/Invoke-MetasploitPayload.ps1"
+	 "name":"Jared Haight - Invoke-MetasploitPayload",
+	 "url":"https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Code_Execution/Invoke-MetasploitPayload/Invoke-MetasploitPayload.ps1"
 	},
 	{
-	 "name":"Tater",
+	 "name":"Kevin Robinson - Tater",
 	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Tater/master/Tater.ps1"
 	},
 	{
-	 "name":"Invoke-MS16-032",
+	 "name":"FuzzySecurity - Invoke-MS16-032",
 	 "url":"https://raw.githubusercontent.com/FuzzySecurity/PowerShell-Suite/master/Invoke-MS16-032.ps1"
 	},
-	{
-	 "name":"Invoke-Mimikittenz",
-	 "url":"https://raw.githubusercontent.com/putterpanda/mimikittenz/master/Invoke-mimikittenz.ps1"
-	}
+  {
+    "name": "Putterpanda - Invoke-Mimikittenz",
+    "url": "https://raw.githubusercontent.com/putterpanda/mimikittenz/master/Invoke-mimikittenz.ps1"
+  },
+  {
+    "name": "Jared Haight - New-ScheduledTaskZ",
+    "url": "https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Persistence/New-ScheduledTaskZ.ps1"
+  }
 ]

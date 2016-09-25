@@ -63,19 +63,17 @@ namespace PSAttackBuildTool.PSAttack
                 return Path.Combine(this.unzipped_dir, Strings.attackSettingsDesignerFile);
             }
         }
-        public string build_args
+        public string build_args(string slnFile)
         {
-            get
-            {
-                string solutionPath = "\"" + Path.Combine(this.unzipped_dir, "PSAttack.sln") + "\"";
-                return solutionPath + " /p:Configuration=Release /p:DebugType=None /p:OutputPath=" + Strings.attackBuildDir;
-            }
+            string solutionPath = "\"" + slnFile + "\"";
+            return solutionPath + " /p:Configuration=Release /p:DebugType=None /p:OutputPath=" + Strings.attackBuildDir;
         }
 
         public void DownloadZip()
         {
             WebClient wc = new WebClient();
             wc.Headers.Add("user-agent", Strings.githubUserAgent);
+            this.zipball_url = "https://github.com/jaredhaight/PSAttack/archive/dev.zip";
             wc.DownloadFile(this.zipball_url, Strings.attackZipPath);
         }
 

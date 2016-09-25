@@ -68,7 +68,7 @@ namespace PSAttackBuildTool.Utils
             using (ZipArchive archive = ZipFile.OpenRead(zipPath))
             {
                 archive.ExtractToDirectory(Strings.attackUnzipDir);
-                return Path.Combine(Strings.attackUnzipDir, archive.Entries[0].FullName);
+                return Path.Combine(Strings.attackUnzipDir, archive.Entries[0].FullName.Replace("/","\\"));
             }
         }
 
@@ -94,21 +94,21 @@ namespace PSAttackBuildTool.Utils
             return psattackReleaseList[0];
         }
 
-        public static int BuildPSAttack(Attack attack)
+        public static int BuildPSAttack(Attack attack, GeneratedStrings generatedStrings)
         {
-            DateTime now = DateTime.Now;
-            string buildDate = String.Format("{0:MMMM dd yyyy} at {0:hh:mm:ss tt}", now);
-            using (StreamWriter buildDateFile = new StreamWriter(Path.Combine(attack.resources_dir, "attackDate.txt")))
-            {
-                buildDateFile.Write(buildDate);
-            }
+            //DateTime now = DateTime.Now;
+            //string buildDate = String.Format("{0:MMMM dd yyyy} at {0:hh:mm:ss tt}", now);
+            //using (StreamWriter buildDateFile = new StreamWriter(Path.Combine(attack.resources_dir, "attackDate.txt")))
+            //{
+            //    buildDateFile.Write(buildDate);
+            //}
             string dotNetDir = System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory();
             string msbuildPath = Path.Combine(dotNetDir, "msbuild.exe");
             if (File.Exists(msbuildPath))
             {
                 Process msbuild = new Process();
                 msbuild.StartInfo.FileName = msbuildPath;
-                msbuild.StartInfo.Arguments = attack.build_args;
+                msbuild.StartInfo.Arguments = attack.build_args(Path.Combine(Strings.obfuscatedSourceDir, generatedStrings.Store["psaReplacement"] + ".sln"));
                 msbuild.StartInfo.UseShellExecute = false;
                 msbuild.StartInfo.RedirectStandardOutput = true;
                 msbuild.StartInfo.RedirectStandardError = true;

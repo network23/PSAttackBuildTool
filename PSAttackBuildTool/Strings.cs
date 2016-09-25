@@ -10,13 +10,14 @@ namespace PSAttackBuildTool
 {
     class Strings
     {
-        public static string version = "1.6";
+        public static string version = "1.8";
         public static string githubUserAgent = "PSAttackBuildTool";
         public static string attackURL = "https://api.github.com/repos/jaredhaight/psattack/releases";
-        public static string attackUnzipDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackSrc");
+        public static string attackUnzipDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackSrc") + "\\";
         public static string attackZipPath = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttack.zip");
-        public static string moduleSrcDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ModuleSrc");
-        public static string obfuscatedScriptsDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ObfuscatedScripts");
+        public static string moduleSrcDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ModuleSrc") + "\\";
+        public static string obfuscatedScriptsDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ObfuscatedScripts") + "\\";
+        public static string obfuscatedSourceDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ObfuscatedSource") + "\\";
         public static string attackModulesDir = "PSAttack\\Modules\\";
         public static string attackResourcesDir = "PSAttack\\Resources\\";
         public static string attackCSProjFile = "PSAttack\\PSAttack.csproj";

@@ -103,12 +103,6 @@ namespace PSAttackBuildTool.PSAttack
             #line default
             #line hidden
             this.Write(@"  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include=""Resources\attackDate.txt"" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include=""Resources\BuildDate.txt"" />
-  </ItemGroup>
   <Import Project=""$(MSBuildToolsPath)\Microsoft.CSharp.targets"" />
   <PropertyGroup>
     <PreBuildEvent>powershell -command ""write-host (get-date -Format D) at (get-date -Format T)"" &gt; ""$(ProjectDir)\Resources\BuildDate.txt""</PreBuildEvent>
