@@ -20,7 +20,7 @@ You can download precompiled binaries of the build tool from the [releases tab](
 You also need full versions of .NET 4.6.1 and .NET 3.5. 4.6.1 is used to run the PS>Attack Build Tool, 3.5 is used to build PS>Attack. By using 3.5 for PS>Attack we end up with an executable that work on anything from a fresh Windows 7 install on up. You can find .NET versions [here](http://blogs.msdn.com/b/dotnet/p/dotnet_sdks.aspx)
 
 #### Contact
-If you have any questions or suggestions for PS>Attack or its Build Tool, feel free to submit an issue or reachout on [twitter](https://www.twitter.com/jaredhaight) or via email: jaredhaight `[at]` prontonmail.com
+If you have any questions or suggestions for PS>Attack or its Build Tool, feel free to submit an issue or reachout on [twitter](https://www.twitter.com/jaredhaight) or via email: jh `[at]` psattack.com
 
 #### Greetz
 PS>Attack was inspired by and benefits from a lot of incredible people in the PowerShell community. Particularly [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. Besides writing the modules and commands that give PS>Attack it's punch, their various projects have inspired alot of my approach to this project as well as my decision to try and contirbute something back to the community.
