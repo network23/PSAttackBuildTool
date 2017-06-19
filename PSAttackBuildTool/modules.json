@@ -98,5 +98,37 @@
   {
     "name": "Jared Haight - New-ScheduledTaskZ",
     "url": "https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Persistence/New-ScheduledTaskZ.ps1"
+  },
+  {
+    "name": "Will Schrorder (Harmj0y) - Invoke-Kerberoast",
+    "url": "https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Kerberoast.ps1"
+  },
+  {
+    "name": "Luke Bagget - dnscat2.ps1",
+    "url": "https://raw.githubusercontent.com/lukebaggett/dnscat2-powershell/master/dnscat2.ps1"
+  },
+  	{
+	 "name":"Kevin Robinson - Invoke-SMBClient",
+	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-SMBClient.ps1"
+	},
+  	{
+	 "name":"Kevin Robinson - Invoke-SMBExec",
+	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-SMBExec.ps1"
+	},
+  	{
+	 "name":"Kevin Robinson - Invoke-WMIExec",
+	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-WMIExec.ps1"
+	},
+  {
+	 "name":"hlldz - Invoke-Phant0m",
+	 "url":"https://raw.githubusercontent.com/hlldz/Invoke-Phant0m/master/Invoke-Phant0m.ps1"
+	},
+  {
+	 "name":"Will Schroeder - KeePassConfig",
+	 "url":"https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/collection/vaults/KeePassConfig.ps1"
+	},
+  {
+    "name": "Jared Haight - Invoke-WMIPersistence",
+    "url": "https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Persistence/New-WMIPersistence.ps1"
   }
 ]
