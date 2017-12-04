@@ -152,7 +152,7 @@ namespace PSAttackBuildTool
  functions from the scripts, it simply verifies that they load successfully. This is the
  same behavior as if you'd run PS>Attack on your own computer and not entered any 
  commands. If you'd like to disable this behavior, set 'obfuscatePowerShell' to false in
- the app.config file.";
+ the config file.";
 
         public static string psaEndSuccess = @"
  Build complete! Your build of PS>Attack is available at: 
