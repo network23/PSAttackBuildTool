@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Text;
 using System.Net;
 using System.Runtime.Serialization.Json;
+using System.Configuration;
+
 using PSAttackBuildTool.Modules;
 using PSAttackBuildTool.PSAttack;
 
@@ -58,17 +60,17 @@ namespace PSAttackBuildTool.Utils
             return dest;
         }
 
-        public static string UnzipFile(string zipPath)
+        public static string UnzipFile(string zipSource, string destinationDir)
         {
-            if (Directory.Exists(Strings.attackUnzipDir))
+            if (Directory.Exists(destinationDir))
             {
-                Directory.Delete(Strings.attackUnzipDir, true);
+                Directory.Delete(destinationDir, true);
             }
-            Directory.CreateDirectory(Strings.attackUnzipDir);
-            using (ZipArchive archive = ZipFile.OpenRead(zipPath))
+            Directory.CreateDirectory(destinationDir);
+            using (ZipArchive archive = ZipFile.OpenRead(zipSource))
             {
-                archive.ExtractToDirectory(Strings.attackUnzipDir);
-                return Path.Combine(Strings.attackUnzipDir, archive.Entries[0].FullName.Replace("/","\\"));
+                archive.ExtractToDirectory(destinationDir);
+                return Path.Combine(destinationDir, archive.Entries[0].FullName.Replace("/","\\"));
             }
         }
 
@@ -82,19 +84,38 @@ namespace PSAttackBuildTool.Utils
             return PSAttackBuildDir+"\\";
         }
 
-       public static Attack GetPSAttack(Uri URL)
+       public static Attack GetPSAttack()
         {
             WebClient wc = new System.Net.WebClient();
             // This took a while to figure out: https://developer.github.com/v3/#user-agent-required
             wc.Headers.Add("user-agent", Strings.githubUserAgent);
-            string JSON = wc.DownloadString(URL);
-            MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(JSON));
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Attack>));
-            List<Attack> psattackReleaseList = (List<Attack>)serializer.ReadObject(stream);
-            return psattackReleaseList[0];
+            if (ConfigurationManager.AppSettings["branch"].ToLower() == "master")
+            {
+                Attack attack = new Attack();
+                attack.tag_name = "master";
+                attack.zipball_url = Strings.masterURL;
+                return attack;
+            }
+            else if (ConfigurationManager.AppSettings["branch"].ToLower() == "dev")
+            {
+                Attack attack = new Attack();
+                attack.tag_name = "dev";
+                attack.zipball_url = Strings.devURL;
+                return attack;
+            }
+            else
+            {
+                Uri URL = new Uri(Strings.releasesURL);
+                string JSON = wc.DownloadString(URL);
+                MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(JSON));
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Attack>));
+                List<Attack> psattackReleaseList = (List<Attack>)serializer.ReadObject(stream);
+                return psattackReleaseList[0];
+            }
+
         }
 
-        public static int BuildPSAttack(Attack attack, GeneratedStrings generatedStrings)
+        public static int BuildPSAttack(Attack attack, GeneratedStrings rulesStrings)
         {
             //DateTime now = DateTime.Now;
             //string buildDate = String.Format("{0:MMMM dd yyyy} at {0:hh:mm:ss tt}", now);
@@ -108,7 +129,7 @@ namespace PSAttackBuildTool.Utils
             {
                 Process msbuild = new Process();
                 msbuild.StartInfo.FileName = msbuildPath;
-                msbuild.StartInfo.Arguments = attack.build_args(Path.Combine(Strings.obfuscatedSourceDir, generatedStrings.Store["psaReplacement"] + ".sln"));
+                msbuild.StartInfo.Arguments = attack.build_args(Path.Combine(Strings.obfuscatedSourceDir, rulesStrings.Store["PSAttack"] + ".sln"));
                 msbuild.StartInfo.UseShellExecute = false;
                 msbuild.StartInfo.RedirectStandardOutput = true;
                 msbuild.StartInfo.RedirectStandardError = true;
@@ -143,10 +164,20 @@ namespace PSAttackBuildTool.Utils
     class GeneratedStrings
     {
         public Dictionary<string,string> Store { get; set; }
-
+        private Random RandomInstance { get; set; }
         public GeneratedStrings()
         {
-            this.Store = new Dictionary<string, string>();
+            Store = new Dictionary<string, string>();
+            RandomInstance = new Random();
+        }
+
+        // Generates a random string for a given value and stores it
+        public void AddValue(string value)
+        {
+            if (!Store.ContainsKey(value))
+            {
+                Store.Add(value, PSABTUtils.RandomString(this.RandomInstance.Next(6, 24), this.RandomInstance));
+            }
         }
     }
 }

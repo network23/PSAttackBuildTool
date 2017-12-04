@@ -3,7 +3,9 @@
 A tool that makes it easy to compile a custom version of [PS>Attack](https://github.com/jaredhaight/psattack), a portable powershell attack environment. 
 
 #### What does the PS>Attack Build Tool do?
-The build tool downloads the latest version of [PS>Attack](https://www.github.com/jaredhaight/psattack/) and the latest versions of tools that is uses (PowerSploit, Powercat, Inveigh, etc) and encrypts them with a custom key. It then compiles everything, producing a custom version of PS>Attack that's up to date and consists of unique file signatures, making it very difficult for Antivirus and Incident Response teams to find.
+The build tool downloads the latest version of [PS>Attack](https://www.github.com/jaredhaight/psattack/) and the latest versions of tools that is uses (PowerSploit, Powercat, Inveigh, etc), obfuscates them with @danielbohannon's [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation) and then encrypts them with a custom key. 
+
+It then replaces certain identifable strings within the PS>Attack source code with random strings and then compiles everything, producing a custom version of PS>Attack that's up to date and consists of unique file signatures, making it very difficult for Antivirus and Incident Response teams to find.
 
 #### PS>Attack
 PS>Attack is a self contained custom PowerShell console that comes with a lot of the latest and greatest offensive PowerShell tools. It's designed to make it very easy for Pentesters to incorporate PowerShell into their workflow. It's suitable to be used on live engagements as it's capable of evading Antivirus and Incident Response teams with the following tricks.
@@ -26,3 +28,5 @@ If you have any questions or suggestions for PS>Attack or its Build Tool, feel f
 PS>Attack was inspired by and benefits from a lot of incredible people in the PowerShell community. Particularly [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. Besides writing the modules and commands that give PS>Attack it's punch, their various projects have inspired alot of my approach to this project as well as my decision to try and contirbute something back to the community.
 
 A huge thank you to [Ben0xA](https://twitter.com/ben0xa), who's [PoshSecFramework](https://github.com/PoshSec/PoshSecFramework) was used to figure out a lot of things about how to build a powershell console.
+
+Thanks to [danielbohannon](https://twitter.com/danielbohannon) for writing the masterpiece that is [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation). I'm glad someone is crazy enough to do the research in obfuscating PowerShell.

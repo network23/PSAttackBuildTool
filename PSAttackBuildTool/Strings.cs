@@ -10,14 +10,20 @@ namespace PSAttackBuildTool
 {
     class Strings
     {
-        public static string version = "1.8";
+        public static string version = "1.9";
         public static string githubUserAgent = "PSAttackBuildTool";
-        public static string attackURL = "https://api.github.com/repos/jaredhaight/psattack/releases";
+        public static string releasesURL = "https://api.github.com/repos/jaredhaight/psattack/releases";
+        public static string masterURL = "https://github.com/jaredhaight/PSAttack/archive/master.zip";
+        public static string devURL = "https://github.com/jaredhaight/PSAttack/archive/dev.zip";
         public static string attackUnzipDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttackSrc") + "\\";
         public static string attackZipPath = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "PSAttack.zip");
         public static string moduleSrcDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ModuleSrc") + "\\";
         public static string obfuscatedScriptsDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ObfuscatedScripts") + "\\";
         public static string obfuscatedSourceDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "ObfuscatedSource") + "\\";
+        public static string invokeObfuscationDir = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "InvokeObfuscation") + "\\";
+        public static string invokeObfuscationZipPath = Path.Combine(PSABTUtils.GetPSAttackBuildToolDir(), "InvokeObfuscation.zip");
+        public static string invokeObfuscationURL = "https://github.com/danielbohannon/Invoke-Obfuscation/archive/master.zip";
+        public static string invokeObfuscationModulePath = Path.Combine(invokeObfuscationDir, "Invoke-Obfuscation-master", "Invoke-Obfuscation.psd1");
         public static string attackModulesDir = "PSAttack\\Modules\\";
         public static string attackResourcesDir = "PSAttack\\Resources\\";
         public static string attackCSProjFile = "PSAttack\\PSAttack.csproj";
@@ -122,28 +128,31 @@ namespace PSAttackBuildTool
 "
         };
         public static string psaStartMsg = @"
- The PS>Attack Build Tool downloads a copy of PS>Attack, downloads
- the latest versions of the files in modules.json, encrypts them 
- and then compiles PS>Attack with these new and unique files. 
- Antivirus software (including Windows Defender) may flag the 
- downloaded files as malicious.  If you run into issues with these
- files you will have to configure your AV software to allow them to
- be downloaded or remove them from modules.json.
+ The PS>Attack Build Tool downloads a copy of PS>Attack, downloads the latest versions of
+ the files in modules.json, encrypts them and then compiles PS>Attack with these new and 
+ unique files. Antivirus software (including Windows Defender) may flag the downloaded 
+ files as malicious.  If you run into issues with these files you will have to configure
+ your AV software to allow them to be downloaded or remove them from modules.json.
 
- The PS>Attack Build Tool relies on a full install of .NET 3.5. 
- Targeting 3.5 allows PS>Attack to work on Windows 7 and up. If you 
- encounter build errors, the first thing you should do is make sure 
- you have the full version of .NET 3.5 installed. Google (or Duck 
- Duck Go, or Bing, etc) is your friend.";
+ The PS>Attack Build Tool relies on a full install of .NET 3.5. Targeting 3.5 allows 
+ PS>Attack to work on Windows 7 and up. If you encounter build errors, the first thing 
+ you should do is make sure you have the full version of .NET 3.5 installed. Google (or 
+ Duck Duck Go, or Bing, etc) is your friend.";
 
         public static string psaWarningMsg = @"
- WARNING: This build tool downloads various PowerShell modules from 
- sources on the internet with the goal of executing them within 
- PS>Attack. For the most part, these files come from developers with 
- established reputations who probably aren't jerks. As always though,
- there is risk involved in downloading code blindly from the internet
- and running it. You can customize the modules.json file to decide
- what code is downloaded and from where.";
+ WARNING: This build tool downloads various PowerShell modules from  sources on the 
+ internet with the goal of executing them within PS>Attack. For the most part, these 
+ files come from developers with established reputations who probably aren't jerks. As 
+ always though, there is risk involved in downloading code blindly from the internet and 
+ running it. You can customize the modules.json file to decide what code is downloaded 
+ and from where.
+
+ To verify that scripts still work after being obfuscated, this build tool attempts to 
+ run the obfuscated file/command in a PowerShell runspace. It does not invoke any
+ functions from the scripts, it simply verifies that they load successfully. This is the
+ same behavior as if you'd run PS>Attack on your own computer and not entered any 
+ commands. If you'd like to disable this behavior, set 'obfuscatePowerShell' to false in
+ the app.config file.";
 
         public static string psaEndSuccess = @"
  Build complete! Your build of PS>Attack is available at: 
@@ -172,8 +181,9 @@ namespace PSAttackBuildTool
  output above and see if there's an obvious issue. If you can't 
  resolve the problem on your own, go ahead and submit an issue  at
  https://github.com/jaredhaight/psattackbuildtool/issues/ and maybe 
- we can help. Make sure to include the output from the build process 
- (the gray text after '[*] Building PS>Attack..' upto this error message)
+ I can help. Make sure to include the output from the build process 
+ (the gray text starting with 'Running build with this command:' up
+ to this error message)
 
  Press return to close this window.
  ";

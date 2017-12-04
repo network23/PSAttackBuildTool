@@ -95,7 +95,6 @@
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="PSAttackProcessing\Processing.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSAttackShell\PSParameter.cs" />
     <Compile Include="PSAttackShell\PSParamType.cs" />
     <Compile Include="PSAttackShell\PSAttackHost.cs" />

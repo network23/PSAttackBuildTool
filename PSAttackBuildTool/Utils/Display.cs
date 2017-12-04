@@ -9,7 +9,7 @@ namespace PSAttackBuildTool.Utils
 {
     class Display
     {
-        public string dashboard = @"
+        static private string dashboard = @"
   __________________________________________________________
  /              __                                          \
  |    _____ ____\ \  _____ _____ _____ _____ _____ _____    |
@@ -27,22 +27,22 @@ namespace PSAttackBuildTool.Utils
  {4}
 ";
 
-        public int stageTop = 10;
-        public int stageLeft = 8;
-        public int statusTop = 11;
-        public int statusLeft = 9;
-        public int messageTop = 13;
-        public int messageLeft = 1;
-        public int secondaryMessageTop = 15;
-        public int secondaryMessageLeft = 1;
+        static private int stageTop = 10;
+        static private int stageLeft = 8;
+        static private int statusTop = 11;
+        static private int statusLeft = 9;
+        static private int messageTop = 13;
+        static private int messageLeft = 1;
+        static private int secondaryMessageTop = 17;
+        static private int secondaryMessageLeft = 1;
 
-        public Display()
+        static public void Dashboard()
         {
             Console.Clear();
-            Console.Write(this.dashboard, Strings.version, "","","","");
+            Console.Write(dashboard, Strings.version, "","","","");
         }
 
-        public void updateStage(string value)
+        static public void Stage(string value)
         {
             Console.CursorTop = stageTop;
             Console.CursorLeft = stageLeft;
@@ -53,7 +53,7 @@ namespace PSAttackBuildTool.Utils
             Console.Write(value);
         }
 
-        public void updateStatus(string value)
+        static public void Status(string value)
         {
             Console.CursorTop = statusTop;
             Console.CursorLeft = statusLeft;
@@ -70,7 +70,7 @@ namespace PSAttackBuildTool.Utils
             Console.Write(value);
         }
 
-        public void updateMessage(string value)
+        static public void PrimaryMessage(string value)
         {
             Console.CursorTop = messageTop;
             Console.CursorLeft = messageLeft;
@@ -90,7 +90,7 @@ namespace PSAttackBuildTool.Utils
             Console.Write(value);
         }
 
-        public void updateSecondaryMessage(string value)
+        static public void SecondaryMessage(string value)
         {
             Console.CursorTop = secondaryMessageTop;
             Console.CursorLeft = secondaryMessageLeft;
@@ -104,6 +104,25 @@ namespace PSAttackBuildTool.Utils
             Console.CursorTop = secondaryMessageTop;
             Console.CursorLeft = secondaryMessageLeft;
             Console.Write(value);
+        }
+
+        static public void ErrorMessage(string message, string exceptionMessage=null, string secondaryMessage=null)
+        {
+            ConsoleColor origColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Status("ERROR!!");
+            PrimaryMessage(message);
+            if (secondaryMessage == null)
+            {
+                secondaryMessage = "PS>Attack will probably not build properly because of this. Press enter to give it a try anyways though.";
+            }
+            if (exceptionMessage != null)
+            {
+                secondaryMessage = $"Error message: \n\n {exceptionMessage} \n\n Press enter to continue building PS>Attack..";
+            }
+            SecondaryMessage(secondaryMessage);
+            Console.ReadLine();
+            Console.ForegroundColor = origColor;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Runtime.Serialization;
+using System.Configuration;
 
 using PSAttackBuildTool.Utils;
 
@@ -66,7 +67,7 @@ namespace PSAttackBuildTool.PSAttack
         public string build_args(string slnFile)
         {
             string solutionPath = "\"" + slnFile + "\"";
-            return solutionPath + " /p:Configuration=Release /p:DebugType=None /p:OutputPath=" + Strings.attackBuildDir;
+            return solutionPath + $" /p:Configuration=Release /p:Platform={ConfigurationManager.AppSettings["arch"]} /p:DebugType=None /p:OutputPath=" + Strings.attackBuildDir;
         }
 
         public void DownloadZip()
