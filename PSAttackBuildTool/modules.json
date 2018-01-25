@@ -130,5 +130,9 @@
   {
     "name": "Jared Haight - Invoke-WMIPersistence",
     "url": "https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Persistence/New-WMIPersistence.ps1"
+  },
+  {
+    "name": "Matt Nelson (enigma0x3) - Invoke-EventVwrBypass.ps1",
+    "url": "https://raw.githubusercontent.com/enigma0x3/Misc-PowerShell-Stuff/master/Invoke-EventVwrBypass.ps1"
   }
 ]
