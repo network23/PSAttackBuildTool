@@ -26,9 +26,9 @@ namespace PSAttackBuildTool.ObfuscationEngine
         static public string InvokeObfuscation(string source, bool file=false)
         {
             List<string> obfuscationCommands = new List<string>();
-            obfuscationCommands.Add(@"TOKEN\ALL\1");
-            obfuscationCommands.Add(@"TOKEN\STRING\1,TOKEN\COMMAND\1,TOKEN\ARGUMENT\3,TOKEN\ARGUMENT\4,TOKEN\MEMBER\4,TOKEN\COMMENT\1");
-            obfuscationCommands.Add(@"TOKEN\STRING\1,TOKEN\COMMAND\1,TOKEN\COMMENT\1");
+            obfuscationCommands.Add(@"TOKEN\COMMAND\3,TOKEN\ARGUMENT\3,TOKEN\ARGUMENT\4,TOKEN\MEMBER\4,TOKEN\VARIABLE\1,TOKEN\COMMENT\1");
+            obfuscationCommands.Add(@"TOKEN\COMMAND\1,TOKEN\ARGUMENT\4,TOKEN\MEMBER\4,TOKEN\COMMENT\1");
+            obfuscationCommands.Add(@"TOKEN\COMMAND\1,TOKEN\COMMENT\1");
 
             string result = "";
             bool success = false; // We'll use this to track successful obfuscation.
@@ -50,11 +50,20 @@ namespace PSAttackBuildTool.ObfuscationEngine
 
                 Display.SecondaryMessage($"Trying obfuscation with the following command: \n\n{cmd}");
 
-                PowerShell ps = PowerShell.Create();
-                ps.AddScript("Import-Module " + Strings.invokeObfuscationModulePath);
-                ps.Invoke();
-                ps.AddScript(cmd);
-                result = ps.Invoke()[0].ToString();
+                try
+                {
+                    PowerShell ps = PowerShell.Create();
+                    ps.AddScript("Import-Module " + Strings.invokeObfuscationModulePath);
+                    ps.Invoke();
+                    ps.AddScript(cmd);
+                    result = ps.Invoke()[0].ToString();
+                }
+                catch
+                {
+                    Display.ErrorMessage($"Obfuscation for {source} failed with {cmd}");
+                    return "ERROR";
+                }
+
 
                 if (result == "")
                 {
@@ -63,19 +72,26 @@ namespace PSAttackBuildTool.ObfuscationEngine
                 }
 
                 // Create a new, clean PowerShell runspace to test the obfuscated script
-                PowerShell detChamber = PowerShell.Create();
-                detChamber.AddScript(result);
-                detChamber.Invoke();
-
-                if (detChamber.Streams.Error.Count > 0)
+                try
+                {
+                    PowerShell detChamber = PowerShell.Create();
+                    detChamber.AddScript(result);
+                    detChamber.Invoke();
+                    if (detChamber.Streams.Error.Count > 0)
+                    {
+                        Display.SecondaryMessage($"Obfuscation command {obfuscationCommand} failed. Trying next in list.");
+                    }
+                    else if (detChamber.Streams.Error.Count == 0)
+                    {
+                        Display.SecondaryMessage($"Obfuscation command {obfuscationCommand} succeeded.");
+                        success = true;
+                        break;
+                    }
+                }
+                catch
                 {
                     Display.SecondaryMessage($"Obfuscation command {obfuscationCommand} failed. Trying next in list.");
-                }
-                else if (detChamber.Streams.Error.Count == 0)
-                {
-                    Display.SecondaryMessage($"Obfuscation command {obfuscationCommand} succeeded.");
-                    success = true;
-                    break;
+                    return "ERROR";
                 }
             }
 
