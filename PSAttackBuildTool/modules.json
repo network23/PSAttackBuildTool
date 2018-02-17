@@ -18,14 +18,14 @@
   {
     "name": "Nishang - Invoke-PsUACme",
     "url": "https://raw.githubusercontent.com/samratashok/nishang/master/Escalation/Invoke-PsUACme.ps1"
-  },   
-  {
-    "name": "PowerTools - PowerUp",
-    "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerUp/PowerUp.ps1"
   },
   {
-    "name": "PowerTools - PowerView",
-    "url": "https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1"
+    "name": "PowerSploit - PowerUp",
+    "url": "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1"
+  },
+  {
+    "name": "Empire - PowerView",
+    "url": "https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/situational_awareness/network/powerview.ps1"
   },
   {
     "name": "PowerSploit - Invoke-Shellcode",
@@ -75,22 +75,22 @@
     "name": "Kevin Robertson - Inveigh",
     "url": "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Scripts/Inveigh.ps1"
   },
-	{
-	  "name": "PSAttack - Get-Attack",
-	  "url":"https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Documentation/Get-Attack.ps1"
-	},
-	{
-	 "name":"Jared Haight - Invoke-MetasploitPayload",
-	 "url":"https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Code_Execution/Invoke-MetasploitPayload/Invoke-MetasploitPayload.ps1"
-	},
-	{
-	 "name":"Kevin Robinson - Tater",
-	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Tater/master/Tater.ps1"
-	},
-	{
-	 "name":"FuzzySecurity - Invoke-MS16-032",
-	 "url":"https://raw.githubusercontent.com/FuzzySecurity/PowerShell-Suite/master/Invoke-MS16-032.ps1"
-	},
+  {
+    "name": "PSAttack - Get-Attack",
+    "url": "https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Documentation/Get-Attack.ps1"
+  },
+  {
+    "name": "Jared Haight - Invoke-MetasploitPayload",
+    "url": "https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Code_Execution/Invoke-MetasploitPayload/Invoke-MetasploitPayload.ps1"
+  },
+  {
+    "name": "Kevin Robinson - Tater",
+    "url": "https://raw.githubusercontent.com/Kevin-Robertson/Tater/master/Tater.ps1"
+  },
+  {
+    "name": "FuzzySecurity - Invoke-MS16-032",
+    "url": "https://raw.githubusercontent.com/FuzzySecurity/PowerShell-Suite/master/Invoke-MS16-032.ps1"
+  },
   {
     "name": "Putterpanda - Invoke-Mimikittenz",
     "url": "https://raw.githubusercontent.com/putterpanda/mimikittenz/master/Invoke-mimikittenz.ps1"
@@ -107,26 +107,26 @@
     "name": "Luke Bagget - dnscat2.ps1",
     "url": "https://raw.githubusercontent.com/lukebaggett/dnscat2-powershell/master/dnscat2.ps1"
   },
-  	{
-	 "name":"Kevin Robinson - Invoke-SMBClient",
-	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-SMBClient.ps1"
-	},
-  	{
-	 "name":"Kevin Robinson - Invoke-SMBExec",
-	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-SMBExec.ps1"
-	},
-  	{
-	 "name":"Kevin Robinson - Invoke-WMIExec",
-	 "url":"https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-WMIExec.ps1"
-	},
   {
-	 "name":"hlldz - Invoke-Phant0m",
-	 "url":"https://raw.githubusercontent.com/hlldz/Invoke-Phant0m/master/Invoke-Phant0m.ps1"
-	},
+    "name": "Kevin Robinson - Invoke-SMBClient",
+    "url": "https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-SMBClient.ps1"
+  },
   {
-	 "name":"Will Schroeder - KeePassConfig",
-	 "url":"https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/collection/vaults/KeePassConfig.ps1"
-	},
+    "name": "Kevin Robinson - Invoke-SMBExec",
+    "url": "https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-SMBExec.ps1"
+  },
+  {
+    "name": "Kevin Robinson - Invoke-WMIExec",
+    "url": "https://raw.githubusercontent.com/Kevin-Robertson/Invoke-TheHash/master/Invoke-WMIExec.ps1"
+  },
+  {
+    "name": "hlldz - Invoke-Phant0m",
+    "url": "https://raw.githubusercontent.com/hlldz/Invoke-Phant0m/master/Invoke-Phant0m.ps1"
+  },
+  {
+    "name": "Will Schroeder - KeePassConfig",
+    "url": "https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/collection/vaults/KeePassConfig.ps1"
+  },
   {
     "name": "Jared Haight - Invoke-WMIPersistence",
     "url": "https://raw.githubusercontent.com/jaredhaight/PowerPunch/master/Persistence/New-WMIPersistence.ps1"
