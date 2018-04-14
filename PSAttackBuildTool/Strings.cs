@@ -10,7 +10,7 @@ namespace PSAttackBuildTool
 {
     class Strings
     {
-        public static string version = "1.9";
+        public static string version = "1.9.1";
         public static string githubUserAgent = "PSAttackBuildTool";
         public static string releasesURL = "https://api.github.com/repos/jaredhaight/psattack/releases";
         public static string masterURL = "https://github.com/jaredhaight/PSAttack/archive/master.zip";
