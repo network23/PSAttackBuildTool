@@ -76,7 +76,7 @@ namespace PSAttackBuildTool.Utils
 
         public static string GetPSAttackBuildToolDir()
         {
-            string PSAttackBuildDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PSAttackBuildTool");
+            string PSAttackBuildDir = "C:\\PSAttackBuildTool");
             if (!(Directory.Exists(PSAttackBuildDir)))
             {
                 Directory.CreateDirectory(PSAttackBuildDir);
@@ -86,7 +86,8 @@ namespace PSAttackBuildTool.Utils
 
        public static Attack GetPSAttack()
         {
-            WebClient wc = new System.Net.WebClient();
+           System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12; 
+           WebClient wc = new System.Net.WebClient();
             // This took a while to figure out: https://developer.github.com/v3/#user-agent-required
             wc.Headers.Add("user-agent", Strings.githubUserAgent);
             if (ConfigurationManager.AppSettings["branch"].ToLower() == "master")
